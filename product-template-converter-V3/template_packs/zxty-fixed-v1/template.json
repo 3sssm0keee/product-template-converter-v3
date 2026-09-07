@@ -1,0 +1,69 @@
+{
+  "schema_version": "template-pack-v3",
+  "id": "zxty-fixed-v1",
+  "version": "1.0.0",
+  "display_name": "智信天一固定产品介绍模板",
+  "lifecycle": "RELEASED",
+  "template": "../../assets/ZXTY-XX_产品全称-产品介绍-模板.docx",
+  "template_sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70",
+  "template_ir": "template-ir.json",
+  "template_ir_file_sha256": "98D3522C98A1E51C8DDC4BB45ED7540673DA36CB65B7B84EC5BD0B93AE0A07B4",
+  "slot_contract": "slots.json",
+  "slot_contract_file_sha256": "B2EFB9793646DD6C443C409F56292B8B77EEB118A8F1E8340813B2A0BF5F44D0",
+  "program": "program.json",
+  "program_file_sha256": "B274056CABEE621D67434DF2C4C1FA16323CBBA845239FD105F45F9B3A55EC57",
+  "validators": "validators.json",
+  "validators_file_sha256": "1AEF40F7E97F01F0EE313B43EA87FE6B1EB09B56F9B853C52CD3F80EC111AE63",
+  "compiler": {
+    "id": "fixed-template-compiler-v3",
+    "version": "3.0.0",
+    "adapter": "zxty-fixed-builder-v2-adapter"
+  },
+  "delivery_targets": {
+    "desktop": {
+      "delivery_format": "DOCX"
+    },
+    "mobile": {
+      "delivery_format": "PDF"
+    }
+  },
+  "invariants": {
+    "sections": 2,
+    "body_floating_anchors": 0,
+    "closing_body_empty": true,
+    "closing_first_page_header": true,
+    "required_chapters": 6,
+    "cover_media": "word/media/image2.jpeg",
+    "closing_media": "word/media/image4.jpeg",
+    "chapter_names": [
+      "一、产品简介",
+      "二、功能介绍",
+      "三、产品优势",
+      "四、应用场景",
+      "五、技术参数",
+      "六、产品资质"
+    ]
+  },
+  "routing": {
+    "candidate_when_unspecified": true,
+    "rules": []
+  },
+  "approval": {
+    "status": "APPROVED",
+    "source": "v2-official-release-migration",
+    "evidence_manifest_sha256": "9411F66587D318821BF63E4E9DF68164E9955168774F8CF757711CE98A30C30F",
+    "bindings": {
+      "template_sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70",
+      "template_ir_sha256": "3774EAFB11375A9F1F0A378C160C1F16F31DAC65DDC0E35828719ED295F86903",
+      "slot_contract_sha256": "80D38419C6DA0286A8BF5CE9F4E127126E7DA78583E416FD72B07AEDDED467FB",
+      "program_sha256": "4EA294C6B1B9A6D0B7383C806DF5F4C70339AF199E4D82C47720941A5512F381",
+      "compiler_id": "fixed-template-compiler-v3",
+      "compiler_version": "3.0.0"
+    }
+  },
+  "validation": {
+    "status": "PASS",
+    "source": "v2-official-release-migration",
+    "open_findings": []
+  }
+}

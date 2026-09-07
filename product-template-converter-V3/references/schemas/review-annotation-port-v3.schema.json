@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-template-converter:review-annotation-port:v3",
+  "title": "ReviewAnnotationPortV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "interface_version", "review_id", "status", "enabled", "capabilities", "storage_methods", "actor_capabilities", "targets"],
+  "properties": {
+    "schema_version": {"const": "review-annotation-port-v3"},
+    "interface_version": {"const": "1.0.0"},
+    "review_id": {"type": "string", "pattern": "^REVIEW-[A-F0-9]{64}$"},
+    "status": {"const": "RESERVED_FOR_V4"},
+    "enabled": {"const": false},
+    "capabilities": {
+      "type": "object", "additionalProperties": false,
+      "required": ["text_selection", "threaded_comments", "status_replies", "completion_labels", "local_persistence", "remote_sync"],
+      "properties": {
+        "text_selection": {"const": false}, "threaded_comments": {"const": false}, "status_replies": {"const": false},
+        "completion_labels": {"const": false}, "local_persistence": {"const": false}, "remote_sync": {"const": false}
+      }
+    },
+    "storage_methods": {"type": "array", "const": ["load", "save", "export", "import", "subscribe"]},
+    "actor_capabilities": {
+      "type": "object", "additionalProperties": false, "required": ["user", "codex", "agent"],
+      "properties": {
+        "user": {"type": "array", "const": ["create", "edit", "delete", "complete", "reopen"]},
+        "codex": {"type": "array", "const": ["reply_status"]},
+        "agent": {"type": "array", "const": ["reply_status"]}
+      }
+    },
+    "targets": {"type": "array", "items": {"$ref": "#/$defs/target"}}
+  },
+  "$defs": {
+    "target": {
+      "type": "object", "additionalProperties": false, "required": ["target_id", "target_kind"],
+      "properties": {
+        "target_id": {"type": "string", "minLength": 1},
+        "target_kind": {"enum": ["review_item", "preview_block", "preview_text", "preview_image", "preview_table"]}
+      }
+    }
+  }
+}

@@ -1,0 +1,468 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.zxty.example/schemas/source-document-v3.schema.json",
+  "title": "SourceDocumentV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "policy_version",
+    "generator",
+    "upstream",
+    "source",
+    "normalized",
+    "normalization",
+    "content",
+    "review"
+  ],
+  "properties": {
+    "schema_version": {"const": "3.0.0"},
+    "artifact_type": {"const": "SourceDocumentV3"},
+    "policy_version": {"type": "string", "minLength": 1},
+    "generator": {"$ref": "#/$defs/generator"},
+    "upstream": {"$ref": "#/$defs/upstream"},
+    "source": {"$ref": "#/$defs/source"},
+    "normalized": {"$ref": "#/$defs/normalized"},
+    "normalization": {"$ref": "#/$defs/normalization"},
+    "content": {
+      "oneOf": [
+        {"$ref": "#/$defs/wordContent"},
+        {"$ref": "#/$defs/presentationContent"},
+        {"$ref": "#/$defs/fixedLayoutContent"}
+      ]
+    },
+    "review": {"$ref": "#/$defs/review"}
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "stringMap": {
+      "type": "object",
+      "additionalProperties": {"type": "string"}
+    },
+    "freeMap": {
+      "type": "object"
+    },
+    "idArray": {
+      "type": "array",
+      "items": {"type": "string", "minLength": 1},
+      "uniqueItems": true
+    },
+    "generator": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "version"],
+      "properties": {
+        "name": {"const": "source_document_v3"},
+        "version": {"type": "string", "minLength": 1}
+      }
+    },
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_type", "schema_version", "artifact_sha256"],
+      "properties": {
+        "artifact_type": {"type": "string", "minLength": 1},
+        "schema_version": {"type": "string", "minLength": 1},
+        "artifact_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "upstream": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "format_probe",
+        "normalized_format_probe",
+        "inventory",
+        "normalization_report"
+      ],
+      "properties": {
+        "format_probe": {"$ref": "#/$defs/artifactRef"},
+        "normalized_format_probe": {"$ref": "#/$defs/artifactRef"},
+        "inventory": {"$ref": "#/$defs/artifactRef"},
+        "normalization_report": {
+          "oneOf": [
+            {"$ref": "#/$defs/artifactRef"},
+            {"type": "null"}
+          ]
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "format", "family"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "format": {"enum": ["doc", "docx", "ppt", "pptx", "pdf"]},
+        "family": {"enum": ["word", "presentation", "fixed_layout"]}
+      }
+    },
+    "normalized": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "format"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "size_bytes": {"type": "integer", "minimum": 1},
+        "format": {"enum": ["docx", "pptx", "pdf"]}
+      }
+    },
+    "normalization": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "format_changed",
+        "method",
+        "source_sha256",
+        "normalized_sha256",
+        "application",
+        "visual_evidence",
+        "report_sha256",
+        "findings"
+      ],
+      "properties": {
+        "required": {"type": "boolean"},
+        "format_changed": {"type": "boolean"},
+        "method": {"type": "string", "minLength": 1},
+        "source_sha256": {"$ref": "#/$defs/sha256"},
+        "normalized_sha256": {"$ref": "#/$defs/sha256"},
+        "application": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["name", "version", "identity"],
+          "properties": {
+            "name": {"type": "string"},
+            "version": {"type": "string"},
+            "identity": {"type": "string"}
+          }
+        },
+        "visual_evidence": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["original_pdf", "normalized_pdf"],
+          "properties": {
+            "original_pdf": {
+              "oneOf": [
+                {"$ref": "#/$defs/evidenceFile"},
+                {"type": "null"}
+              ]
+            },
+            "normalized_pdf": {
+              "oneOf": [
+                {"$ref": "#/$defs/evidenceFile"},
+                {"type": "null"}
+              ]
+            }
+          }
+        },
+        "report_sha256": {
+          "oneOf": [
+            {"$ref": "#/$defs/sha256"},
+            {"type": "null"}
+          ]
+        },
+        "findings": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "evidenceFile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "contextValue": {
+      "type": ["string", "integer", "number", "boolean"]
+    },
+    "textPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "text"],
+      "properties": {
+        "type": {"const": "text"},
+        "text": {"type": "string"}
+      }
+    },
+    "tablePayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "rows"],
+      "properties": {
+        "type": {"const": "table"},
+        "rows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "items": {"type": "string"}
+          }
+        }
+      }
+    },
+    "assetPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "name", "sha256", "visual_sha256", "bytes", "media_kind"],
+      "properties": {
+        "type": {"const": "asset"},
+        "name": {"type": "string"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "visual_sha256": {
+          "oneOf": [
+            {"$ref": "#/$defs/sha256"},
+            {"type": "null"}
+          ]
+        },
+        "bytes": {"type": "integer", "minimum": 0},
+        "media_kind": {"enum": ["image", "media"]}
+      }
+    },
+    "relationshipPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "type",
+        "source_part",
+        "relationship_id",
+        "relationship_type",
+        "target",
+        "target_mode"
+      ],
+      "properties": {
+        "type": {"const": "relationship"},
+        "source_part": {"type": "string"},
+        "relationship_id": {"type": "string"},
+        "relationship_type": {"type": "string"},
+        "target": {"type": "string"},
+        "target_mode": {"type": "string"}
+      }
+    },
+    "descriptionPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "text", "name", "title", "description"],
+      "properties": {
+        "type": {"const": "description"},
+        "text": {"type": "string"},
+        "name": {"type": "string"},
+        "title": {"type": "string"},
+        "description": {"type": "string"}
+      }
+    },
+    "genericPayload": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["type", "value"],
+      "properties": {
+        "type": {"const": "generic"},
+        "value": {"type": "object"}
+      }
+    },
+    "typedItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "kind", "location", "payload", "context", "attributes"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "minLength": 1},
+        "location": {"type": "string", "minLength": 1},
+        "payload": {
+          "oneOf": [
+            {"$ref": "#/$defs/textPayload"},
+            {"$ref": "#/$defs/tablePayload"},
+            {"$ref": "#/$defs/assetPayload"},
+            {"$ref": "#/$defs/relationshipPayload"},
+            {"$ref": "#/$defs/descriptionPayload"},
+            {"$ref": "#/$defs/genericPayload"}
+          ]
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": {"$ref": "#/$defs/contextValue"}
+        },
+        "attributes": {"type": "object"}
+      }
+    },
+    "unsupportedFeature": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "source_id", "location", "detail"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "source_id": {"type": "string"},
+        "location": {"type": "string"},
+        "detail": {"type": "string"}
+      }
+    },
+    "partGroup": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["part", "item_ids"],
+      "properties": {
+        "part": {"type": "string"},
+        "item_ids": {"$ref": "#/$defs/idArray"}
+      }
+    },
+    "wordContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "items",
+        "paragraph_ids",
+        "table_ids",
+        "headers",
+        "footers",
+        "shape_ids",
+        "image_ids",
+        "relationship_ids",
+        "metadata",
+        "counts",
+        "unsupported_features"
+      ],
+      "properties": {
+        "kind": {"const": "word"},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/typedItem"}},
+        "paragraph_ids": {"$ref": "#/$defs/idArray"},
+        "table_ids": {"$ref": "#/$defs/idArray"},
+        "headers": {"type": "array", "items": {"$ref": "#/$defs/partGroup"}},
+        "footers": {"type": "array", "items": {"$ref": "#/$defs/partGroup"}},
+        "shape_ids": {"$ref": "#/$defs/idArray"},
+        "image_ids": {"$ref": "#/$defs/idArray"},
+        "relationship_ids": {"$ref": "#/$defs/idArray"},
+        "metadata": {"type": "object"},
+        "counts": {"type": "object"},
+        "unsupported_features": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/unsupportedFeature"}
+        }
+      }
+    },
+    "slide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["number", "item_ids"],
+      "properties": {
+        "number": {"type": "integer", "minimum": 1},
+        "item_ids": {"$ref": "#/$defs/idArray"}
+      }
+    },
+    "presentationContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "items",
+        "slides",
+        "masters",
+        "layouts",
+        "notes",
+        "shape_ids",
+        "asset_ids",
+        "relationship_ids",
+        "metadata",
+        "counts",
+        "unsupported_features"
+      ],
+      "properties": {
+        "kind": {"const": "presentation"},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/typedItem"}},
+        "slides": {"type": "array", "items": {"$ref": "#/$defs/slide"}},
+        "masters": {"type": "array", "items": {"$ref": "#/$defs/partGroup"}},
+        "layouts": {"type": "array", "items": {"$ref": "#/$defs/partGroup"}},
+        "notes": {"type": "array", "items": {"$ref": "#/$defs/partGroup"}},
+        "shape_ids": {"$ref": "#/$defs/idArray"},
+        "asset_ids": {"$ref": "#/$defs/idArray"},
+        "relationship_ids": {"$ref": "#/$defs/idArray"},
+        "metadata": {"type": "object"},
+        "counts": {"type": "object"},
+        "unsupported_features": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/unsupportedFeature"}
+        }
+      }
+    },
+    "page": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "number",
+        "native_text_ids",
+        "ocr_text_ids",
+        "image_ids",
+        "other_item_ids"
+      ],
+      "properties": {
+        "number": {"type": "integer", "minimum": 1},
+        "native_text_ids": {"$ref": "#/$defs/idArray"},
+        "ocr_text_ids": {"$ref": "#/$defs/idArray"},
+        "image_ids": {"$ref": "#/$defs/idArray"},
+        "other_item_ids": {"$ref": "#/$defs/idArray"}
+      }
+    },
+    "ocr": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["pages", "methods", "required_pages", "failed_pages"],
+      "properties": {
+        "pages": {
+          "type": "array",
+          "items": {"type": "integer", "minimum": 1},
+          "uniqueItems": true
+        },
+        "methods": {"$ref": "#/$defs/stringMap"},
+        "required_pages": {"type": "integer", "minimum": 0},
+        "failed_pages": {"type": "integer", "minimum": 0}
+      }
+    },
+    "fixedLayoutContent": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "kind",
+        "items",
+        "pages",
+        "unattached_item_ids",
+        "metadata",
+        "counts",
+        "ocr",
+        "unsupported_features"
+      ],
+      "properties": {
+        "kind": {"const": "fixed_layout"},
+        "items": {"type": "array", "items": {"$ref": "#/$defs/typedItem"}},
+        "pages": {"type": "array", "items": {"$ref": "#/$defs/page"}},
+        "unattached_item_ids": {"$ref": "#/$defs/idArray"},
+        "metadata": {"type": "object"},
+        "counts": {"type": "object"},
+        "ocr": {"$ref": "#/$defs/ocr"},
+        "unsupported_features": {
+          "type": "array",
+          "items": {"$ref": "#/$defs/unsupportedFeature"}
+        }
+      }
+    },
+    "review": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["required", "reasons"],
+      "properties": {
+        "required": {"type": "boolean"},
+        "reasons": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1},
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

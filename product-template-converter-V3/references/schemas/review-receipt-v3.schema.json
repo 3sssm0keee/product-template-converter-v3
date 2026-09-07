@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-template-converter:review-receipt:v3",
+  "title": "ReviewReceiptV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "review_id", "reviewer", "reviewed_at", "overall_action", "scope", "binding", "evidence_bindings", "decisions"],
+  "properties": {
+    "schema_version": {"const": "3.0"},
+    "review_id": {"type": "string", "pattern": "^REVIEW-[A-F0-9]{64}$"},
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1}
+      }
+    },
+    "reviewed_at": {"type": "string", "minLength": 1},
+    "overall_action": {"enum": ["APPROVED", "REJECTED", "REVISION_REQUIRED", "FACT_PENDING"]},
+    "scope": {"enum": ["ENTIRE_QUEUE", "SELECTED_ITEMS"]},
+    "binding": {"$ref": "#/$defs/binding"},
+    "evidence_bindings": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/evidenceBinding"}},
+    "decisions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/itemDecision"}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "binding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "source_sha256",
+        "template_sha256",
+        "template_ir_sha256",
+        "template_dsl_sha256",
+        "compiler_sha256",
+        "candidate_output_sha256",
+        "diff_report_sha256"
+      ],
+      "properties": {
+        "source_sha256": {"$ref": "#/$defs/sha256"},
+        "template_sha256": {"$ref": "#/$defs/sha256"},
+        "template_ir_sha256": {"$ref": "#/$defs/sha256"},
+        "template_dsl_sha256": {"$ref": "#/$defs/sha256"},
+        "compiler_sha256": {"$ref": "#/$defs/sha256"},
+        "candidate_output_sha256": {"$ref": "#/$defs/sha256"},
+        "diff_report_sha256": {"$ref": "#/$defs/sha256"},
+        "hidden_reviewer_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "itemDecision": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["review_item_id", "action", "comment", "evidence_ids"],
+      "properties": {
+        "review_item_id": {"type": "string", "minLength": 1},
+        "action": {"enum": ["APPROVE", "REJECT", "REQUEST_REVISION", "FACT_PENDING"]},
+        "comment": {"type": "string"},
+        "evidence_ids": {"type": "array", "minItems": 1, "uniqueItems": true, "items": {"type": "string", "minLength": 1}}
+      }
+    },
+    "evidenceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "sha256"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  }
+}

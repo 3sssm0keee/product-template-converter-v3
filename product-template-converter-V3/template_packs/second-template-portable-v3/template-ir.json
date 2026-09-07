@@ -1,0 +1,1249 @@
+{
+  "schema_version": "docx-template-ir-v3",
+  "artifact_type": "DocxTemplateIRV3",
+  "generated_at": "2026-09-05T17:16:54.279783Z",
+  "analyzer": {
+    "id": "docx-template-analyzer",
+    "version": "3.0.0"
+  },
+  "source_template": {
+    "path": "template.docx",
+    "sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+    "container": "ooxml-docx",
+    "member_count": 26
+  },
+  "fingerprint": {
+    "byte_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+    "normalized_structure_sha256": "B35F1727D89BF76A00D584137C74F938FA43350987E0819050913E7D71AE4EF9",
+    "visual_proxy_sha256": "F27AD06C9B752D3FC6A0162FB7DA9255762B5A64BB9A5FE9B7DD7ACF8D26A899",
+    "visual_method": "page-geometry-media-proxy-v1",
+    "structural_parts": [
+      "[Content_Types].xml",
+      "_rels/.rels",
+      "word/_rels/document.xml.rels",
+      "word/_rels/footer1.xml.rels",
+      "word/_rels/header1.xml.rels",
+      "word/document.xml",
+      "word/fontTable.xml",
+      "word/footer1.xml",
+      "word/header1.xml",
+      "word/numbering.xml",
+      "word/settings.xml",
+      "word/styles.xml",
+      "word/stylesWithEffects.xml",
+      "word/theme/theme1.xml",
+      "word/webSettings.xml"
+    ]
+  },
+  "page_contract": {
+    "sections": [
+      {
+        "index": 1,
+        "type": "continuous",
+        "page_size_twips": {
+          "width": 11906,
+          "height": 16838,
+          "orientation": "portrait"
+        },
+        "margins_twips": {
+          "top": 454,
+          "right": 850,
+          "bottom": 454,
+          "left": 850,
+          "header": 360,
+          "footer": 360,
+          "gutter": 0
+        },
+        "title_page": false,
+        "headers": [
+          {
+            "type": "default",
+            "relationship_id": "rId12"
+          }
+        ],
+        "footers": [
+          {
+            "type": "default",
+            "relationship_id": "rId13"
+          }
+        ]
+      }
+    ],
+    "different_even_odd_headers": false,
+    "regions": [
+      {
+        "role": "body",
+        "section_indexes": [
+          1
+        ],
+        "recognition_source": "deterministic"
+      }
+    ]
+  },
+  "styles": [
+    {
+      "style_id": "BodyText2Char",
+      "type": "character",
+      "name": "Body Text 2 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "BodyText3Char",
+      "type": "character",
+      "name": "Body Text 3 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "BodyTextChar",
+      "type": "character",
+      "name": "Body Text Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "BookTitle",
+      "type": "character",
+      "name": "Book Title",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "DefaultParagraphFont",
+      "type": "character",
+      "name": "Default Paragraph Font",
+      "based_on": ""
+    },
+    {
+      "style_id": "Emphasis",
+      "type": "character",
+      "name": "Emphasis",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "FooterChar",
+      "type": "character",
+      "name": "Footer Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "HeaderChar",
+      "type": "character",
+      "name": "Header Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading1Char",
+      "type": "character",
+      "name": "Heading 1 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading2Char",
+      "type": "character",
+      "name": "Heading 2 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading3Char",
+      "type": "character",
+      "name": "Heading 3 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading4Char",
+      "type": "character",
+      "name": "Heading 4 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading5Char",
+      "type": "character",
+      "name": "Heading 5 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading6Char",
+      "type": "character",
+      "name": "Heading 6 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading7Char",
+      "type": "character",
+      "name": "Heading 7 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading8Char",
+      "type": "character",
+      "name": "Heading 8 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Heading9Char",
+      "type": "character",
+      "name": "Heading 9 Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "IntenseEmphasis",
+      "type": "character",
+      "name": "Intense Emphasis",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "IntenseQuoteChar",
+      "type": "character",
+      "name": "Intense Quote Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "IntenseReference",
+      "type": "character",
+      "name": "Intense Reference",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "MacroTextChar",
+      "type": "character",
+      "name": "Macro Text Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "QuoteChar",
+      "type": "character",
+      "name": "Quote Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "Strong",
+      "type": "character",
+      "name": "Strong",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "SubtitleChar",
+      "type": "character",
+      "name": "Subtitle Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "SubtleEmphasis",
+      "type": "character",
+      "name": "Subtle Emphasis",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "SubtleReference",
+      "type": "character",
+      "name": "Subtle Reference",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "TitleChar",
+      "type": "character",
+      "name": "Title Char",
+      "based_on": "DefaultParagraphFont"
+    },
+    {
+      "style_id": "NoList",
+      "type": "numbering",
+      "name": "No List",
+      "based_on": ""
+    },
+    {
+      "style_id": "BodyText",
+      "type": "paragraph",
+      "name": "Body Text",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "BodyText2",
+      "type": "paragraph",
+      "name": "Body Text 2",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "BodyText3",
+      "type": "paragraph",
+      "name": "Body Text 3",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Caption",
+      "type": "paragraph",
+      "name": "caption",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Footer",
+      "type": "paragraph",
+      "name": "footer",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Header",
+      "type": "paragraph",
+      "name": "header",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading1",
+      "type": "paragraph",
+      "name": "heading 1",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading2",
+      "type": "paragraph",
+      "name": "heading 2",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading3",
+      "type": "paragraph",
+      "name": "heading 3",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading4",
+      "type": "paragraph",
+      "name": "heading 4",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading5",
+      "type": "paragraph",
+      "name": "heading 5",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading6",
+      "type": "paragraph",
+      "name": "heading 6",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading7",
+      "type": "paragraph",
+      "name": "heading 7",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading8",
+      "type": "paragraph",
+      "name": "heading 8",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Heading9",
+      "type": "paragraph",
+      "name": "heading 9",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "IntenseQuote",
+      "type": "paragraph",
+      "name": "Intense Quote",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "List",
+      "type": "paragraph",
+      "name": "List",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "List2",
+      "type": "paragraph",
+      "name": "List 2",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "List3",
+      "type": "paragraph",
+      "name": "List 3",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListBullet",
+      "type": "paragraph",
+      "name": "List Bullet",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListBullet2",
+      "type": "paragraph",
+      "name": "List Bullet 2",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListBullet3",
+      "type": "paragraph",
+      "name": "List Bullet 3",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListContinue",
+      "type": "paragraph",
+      "name": "List Continue",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListContinue2",
+      "type": "paragraph",
+      "name": "List Continue 2",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListContinue3",
+      "type": "paragraph",
+      "name": "List Continue 3",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListNumber",
+      "type": "paragraph",
+      "name": "List Number",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListNumber2",
+      "type": "paragraph",
+      "name": "List Number 2",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListNumber3",
+      "type": "paragraph",
+      "name": "List Number 3",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ListParagraph",
+      "type": "paragraph",
+      "name": "List Paragraph",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "MacroText",
+      "type": "paragraph",
+      "name": "macro",
+      "based_on": ""
+    },
+    {
+      "style_id": "NoSpacing",
+      "type": "paragraph",
+      "name": "No Spacing",
+      "based_on": ""
+    },
+    {
+      "style_id": "Normal",
+      "type": "paragraph",
+      "name": "Normal",
+      "based_on": ""
+    },
+    {
+      "style_id": "Quote",
+      "type": "paragraph",
+      "name": "Quote",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "Subtitle",
+      "type": "paragraph",
+      "name": "Subtitle",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "TOCHeading",
+      "type": "paragraph",
+      "name": "TOC Heading",
+      "based_on": "Heading1"
+    },
+    {
+      "style_id": "Title",
+      "type": "paragraph",
+      "name": "Title",
+      "based_on": "Normal"
+    },
+    {
+      "style_id": "ColorfulGrid",
+      "type": "table",
+      "name": "Colorful Grid",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulGrid-Accent1",
+      "type": "table",
+      "name": "Colorful Grid Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulGrid-Accent2",
+      "type": "table",
+      "name": "Colorful Grid Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulGrid-Accent3",
+      "type": "table",
+      "name": "Colorful Grid Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulGrid-Accent4",
+      "type": "table",
+      "name": "Colorful Grid Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulGrid-Accent5",
+      "type": "table",
+      "name": "Colorful Grid Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulGrid-Accent6",
+      "type": "table",
+      "name": "Colorful Grid Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulList",
+      "type": "table",
+      "name": "Colorful List",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulList-Accent1",
+      "type": "table",
+      "name": "Colorful List Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulList-Accent2",
+      "type": "table",
+      "name": "Colorful List Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulList-Accent3",
+      "type": "table",
+      "name": "Colorful List Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulList-Accent4",
+      "type": "table",
+      "name": "Colorful List Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulList-Accent5",
+      "type": "table",
+      "name": "Colorful List Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulList-Accent6",
+      "type": "table",
+      "name": "Colorful List Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulShading",
+      "type": "table",
+      "name": "Colorful Shading",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulShading-Accent1",
+      "type": "table",
+      "name": "Colorful Shading Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulShading-Accent2",
+      "type": "table",
+      "name": "Colorful Shading Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulShading-Accent3",
+      "type": "table",
+      "name": "Colorful Shading Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulShading-Accent4",
+      "type": "table",
+      "name": "Colorful Shading Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulShading-Accent5",
+      "type": "table",
+      "name": "Colorful Shading Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "ColorfulShading-Accent6",
+      "type": "table",
+      "name": "Colorful Shading Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "DarkList",
+      "type": "table",
+      "name": "Dark List",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "DarkList-Accent1",
+      "type": "table",
+      "name": "Dark List Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "DarkList-Accent2",
+      "type": "table",
+      "name": "Dark List Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "DarkList-Accent3",
+      "type": "table",
+      "name": "Dark List Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "DarkList-Accent4",
+      "type": "table",
+      "name": "Dark List Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "DarkList-Accent5",
+      "type": "table",
+      "name": "Dark List Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "DarkList-Accent6",
+      "type": "table",
+      "name": "Dark List Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightGrid",
+      "type": "table",
+      "name": "Light Grid",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightGrid-Accent1",
+      "type": "table",
+      "name": "Light Grid Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightGrid-Accent2",
+      "type": "table",
+      "name": "Light Grid Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightGrid-Accent3",
+      "type": "table",
+      "name": "Light Grid Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightGrid-Accent4",
+      "type": "table",
+      "name": "Light Grid Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightGrid-Accent5",
+      "type": "table",
+      "name": "Light Grid Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightGrid-Accent6",
+      "type": "table",
+      "name": "Light Grid Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightList",
+      "type": "table",
+      "name": "Light List",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightList-Accent1",
+      "type": "table",
+      "name": "Light List Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightList-Accent2",
+      "type": "table",
+      "name": "Light List Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightList-Accent3",
+      "type": "table",
+      "name": "Light List Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightList-Accent4",
+      "type": "table",
+      "name": "Light List Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightList-Accent5",
+      "type": "table",
+      "name": "Light List Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightList-Accent6",
+      "type": "table",
+      "name": "Light List Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightShading",
+      "type": "table",
+      "name": "Light Shading",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightShading-Accent1",
+      "type": "table",
+      "name": "Light Shading Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightShading-Accent2",
+      "type": "table",
+      "name": "Light Shading Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightShading-Accent3",
+      "type": "table",
+      "name": "Light Shading Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightShading-Accent4",
+      "type": "table",
+      "name": "Light Shading Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightShading-Accent5",
+      "type": "table",
+      "name": "Light Shading Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "LightShading-Accent6",
+      "type": "table",
+      "name": "Light Shading Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid1",
+      "type": "table",
+      "name": "Medium Grid 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid1-Accent1",
+      "type": "table",
+      "name": "Medium Grid 1 Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid1-Accent2",
+      "type": "table",
+      "name": "Medium Grid 1 Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid1-Accent3",
+      "type": "table",
+      "name": "Medium Grid 1 Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid1-Accent4",
+      "type": "table",
+      "name": "Medium Grid 1 Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid1-Accent5",
+      "type": "table",
+      "name": "Medium Grid 1 Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid1-Accent6",
+      "type": "table",
+      "name": "Medium Grid 1 Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid2",
+      "type": "table",
+      "name": "Medium Grid 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid2-Accent1",
+      "type": "table",
+      "name": "Medium Grid 2 Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid2-Accent2",
+      "type": "table",
+      "name": "Medium Grid 2 Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid2-Accent3",
+      "type": "table",
+      "name": "Medium Grid 2 Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid2-Accent4",
+      "type": "table",
+      "name": "Medium Grid 2 Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid2-Accent5",
+      "type": "table",
+      "name": "Medium Grid 2 Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid2-Accent6",
+      "type": "table",
+      "name": "Medium Grid 2 Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid3",
+      "type": "table",
+      "name": "Medium Grid 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid3-Accent1",
+      "type": "table",
+      "name": "Medium Grid 3 Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid3-Accent2",
+      "type": "table",
+      "name": "Medium Grid 3 Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid3-Accent3",
+      "type": "table",
+      "name": "Medium Grid 3 Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid3-Accent4",
+      "type": "table",
+      "name": "Medium Grid 3 Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid3-Accent5",
+      "type": "table",
+      "name": "Medium Grid 3 Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumGrid3-Accent6",
+      "type": "table",
+      "name": "Medium Grid 3 Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList1",
+      "type": "table",
+      "name": "Medium List 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList1-Accent1",
+      "type": "table",
+      "name": "Medium List 1 Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList1-Accent2",
+      "type": "table",
+      "name": "Medium List 1 Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList1-Accent3",
+      "type": "table",
+      "name": "Medium List 1 Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList1-Accent4",
+      "type": "table",
+      "name": "Medium List 1 Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList1-Accent5",
+      "type": "table",
+      "name": "Medium List 1 Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList1-Accent6",
+      "type": "table",
+      "name": "Medium List 1 Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList2",
+      "type": "table",
+      "name": "Medium List 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList2-Accent1",
+      "type": "table",
+      "name": "Medium List 2 Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList2-Accent2",
+      "type": "table",
+      "name": "Medium List 2 Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList2-Accent3",
+      "type": "table",
+      "name": "Medium List 2 Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList2-Accent4",
+      "type": "table",
+      "name": "Medium List 2 Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList2-Accent5",
+      "type": "table",
+      "name": "Medium List 2 Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumList2-Accent6",
+      "type": "table",
+      "name": "Medium List 2 Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading1",
+      "type": "table",
+      "name": "Medium Shading 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading1-Accent1",
+      "type": "table",
+      "name": "Medium Shading 1 Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading1-Accent2",
+      "type": "table",
+      "name": "Medium Shading 1 Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading1-Accent3",
+      "type": "table",
+      "name": "Medium Shading 1 Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading1-Accent4",
+      "type": "table",
+      "name": "Medium Shading 1 Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading1-Accent5",
+      "type": "table",
+      "name": "Medium Shading 1 Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading1-Accent6",
+      "type": "table",
+      "name": "Medium Shading 1 Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading2",
+      "type": "table",
+      "name": "Medium Shading 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading2-Accent1",
+      "type": "table",
+      "name": "Medium Shading 2 Accent 1",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading2-Accent2",
+      "type": "table",
+      "name": "Medium Shading 2 Accent 2",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading2-Accent3",
+      "type": "table",
+      "name": "Medium Shading 2 Accent 3",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading2-Accent4",
+      "type": "table",
+      "name": "Medium Shading 2 Accent 4",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading2-Accent5",
+      "type": "table",
+      "name": "Medium Shading 2 Accent 5",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "MediumShading2-Accent6",
+      "type": "table",
+      "name": "Medium Shading 2 Accent 6",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "TableGrid",
+      "type": "table",
+      "name": "Table Grid",
+      "based_on": "TableNormal"
+    },
+    {
+      "style_id": "TableNormal",
+      "type": "table",
+      "name": "Normal Table",
+      "based_on": ""
+    }
+  ],
+  "numbering": {
+    "abstract_num_ids": [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8"
+    ],
+    "num_ids": [
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9"
+    ]
+  },
+  "theme": {
+    "part": "word/theme/theme1.xml",
+    "major_fonts": [
+      "",
+      "Angsana New",
+      "Calibri",
+      "DokChampa",
+      "Estrangelo Edessa",
+      "Euphemia",
+      "Gautami",
+      "Iskoola Pota",
+      "Kalinga",
+      "Kartika",
+      "Latha",
+      "MV Boli",
+      "Mangal",
+      "Microsoft Himalaya",
+      "Microsoft Uighur",
+      "Microsoft Yi Baiti",
+      "Mongolian Baiti",
+      "MoolBoran",
+      "Nyala",
+      "Plantagenet Cherokee",
+      "Raavi",
+      "Shruti",
+      "Sylfaen",
+      "Times New Roman",
+      "Tunga",
+      "Vrinda",
+      "宋体",
+      "新細明體",
+      "맑은 고딕",
+      "ＭＳ ゴシック"
+    ],
+    "minor_fonts": [
+      "",
+      "Arial",
+      "Cambria",
+      "Cordia New",
+      "DaunPenh",
+      "DokChampa",
+      "Estrangelo Edessa",
+      "Euphemia",
+      "Gautami",
+      "Iskoola Pota",
+      "Kalinga",
+      "Kartika",
+      "Latha",
+      "MV Boli",
+      "Mangal",
+      "Microsoft Himalaya",
+      "Microsoft Uighur",
+      "Microsoft Yi Baiti",
+      "Mongolian Baiti",
+      "Nyala",
+      "Plantagenet Cherokee",
+      "Raavi",
+      "Shruti",
+      "Sylfaen",
+      "Tunga",
+      "Vrinda",
+      "宋体",
+      "新細明體",
+      "맑은 고딕",
+      "ＭＳ 明朝"
+    ],
+    "colors": [
+      "000000",
+      "0000FF",
+      "1F497D",
+      "4BACC6",
+      "4F81BD",
+      "800080",
+      "8064A2",
+      "9BBB59",
+      "C0504D",
+      "EEECE1",
+      "F79646",
+      "FFFFFF"
+    ]
+  },
+  "media": [
+    {
+      "part": "word/media/footer_line.png",
+      "sha256": "D66C121977B42880686DF95D685BC2861DD8971B5DCEDA444354AC209A84E446",
+      "visual_sha256": "B3044C00BF1685F137ED5AEB74F75F7ECFF4C93DC0BF7B209F6AF5ED17DE9848",
+      "content_type": "image/png",
+      "relationship_ids": [],
+      "semantic_role": "unassigned",
+      "recognition_source": "deterministic"
+    },
+    {
+      "part": "word/media/header_line.png",
+      "sha256": "D66C121977B42880686DF95D685BC2861DD8971B5DCEDA444354AC209A84E446",
+      "visual_sha256": "B3044C00BF1685F137ED5AEB74F75F7ECFF4C93DC0BF7B209F6AF5ED17DE9848",
+      "content_type": "image/png",
+      "relationship_ids": [],
+      "semantic_role": "unassigned",
+      "recognition_source": "deterministic"
+    },
+    {
+      "part": "word/media/image1.png",
+      "sha256": "35B1097B053BA8CB4ECD1025F8E4D7E94FDB862018CC4C8F9BD0A56F6100E530",
+      "visual_sha256": "C3BE4BCA8F984B0B9C260207851F82220D7C2FF5CB93DB751F17FB6796842ED9",
+      "content_type": "image/png",
+      "relationship_ids": [
+        "rId9"
+      ],
+      "semantic_role": "unassigned",
+      "recognition_source": "deterministic"
+    },
+    {
+      "part": "word/media/image2.png",
+      "sha256": "E87A9FBB06EAEC16CE6A7E58265E22304A23480331F081AADB91D6EA32ACC636",
+      "visual_sha256": "D55AE3DEF7A32C200875879DEA089D93833F89D76BC6A32BDFAC9005177C3A2C",
+      "content_type": "image/png",
+      "relationship_ids": [
+        "rId10"
+      ],
+      "semantic_role": "unassigned",
+      "recognition_source": "deterministic"
+    },
+    {
+      "part": "word/media/image3.png",
+      "sha256": "1793CCA797D8B38DCD8547AC0AF5AF6480BE4DE97E2AB1BB64E00A6E66ACBE24",
+      "visual_sha256": "D3BF278449DD36579EB9E145BF5C4A3674B3AEA652F457B18830DBA7D8BB09A9",
+      "content_type": "image/png",
+      "relationship_ids": [
+        "rId11"
+      ],
+      "semantic_role": "unassigned",
+      "recognition_source": "deterministic"
+    }
+  ],
+  "detected_slots": [
+    {
+      "slot_id": "detected-text-1",
+      "kind": "text",
+      "location": "word/document.xml#paragraph:1",
+      "placeholder_text": "产品全称",
+      "recognition_source": "inferred",
+      "review_required": true
+    }
+  ],
+  "drawing": {
+    "drawing_count": 0,
+    "floating_anchor_count": 0,
+    "inline_drawing_count": 0
+  },
+  "unsupported_objects": [],
+  "recognition": {
+    "source": "deterministic",
+    "review_state": "REVIEW_REQUIRED",
+    "approved_scope": null
+  },
+  "ir_sha256": "3ABB5D8A2FC3B3B2FDE498C34F859B97AA31E8F42FFD3C18AA1CDCE268197CCF"
+}

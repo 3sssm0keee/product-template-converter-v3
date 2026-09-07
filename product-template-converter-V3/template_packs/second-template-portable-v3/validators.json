@@ -1,0 +1,12 @@
+{
+  "schema_version": "template-validator-dispatch-v3",
+  "core": [
+    "document_structure",
+    "tables",
+    "rendered_pages",
+    "identity_scan"
+  ],
+  "pack": [],
+  "review_state": "APPROVED",
+  "approval_mechanism": "hash_bound_review_receipt"
+}

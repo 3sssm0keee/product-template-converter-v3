@@ -1,0 +1,171 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-template-converter:decision-task-bundle:v3",
+  "title": "DecisionTaskBundleV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "task_id",
+    "task_type",
+    "batch_index",
+    "batch_count",
+    "instruction",
+    "policy",
+    "source_document_sha256",
+    "template_pack",
+    "item_batch",
+    "deterministic_candidates",
+    "allowed_actions",
+    "allowed_slots",
+    "evidence_refs",
+    "output_schema_ref",
+    "output_schema_sha256",
+    "inline_evidence_chars"
+  ],
+  "properties": {
+    "schema_version": {"const": "3.0"},
+    "task_id": {"type": "string", "pattern": "^TASK-[A-F0-9]{64}$"},
+    "task_type": {"const": "content_and_identity_decision"},
+    "batch_index": {"type": "integer", "minimum": 1},
+    "batch_count": {"type": "integer", "minimum": 1},
+    "instruction": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "policy": {"$ref": "#/$defs/versionedHash"},
+    "source_document_sha256": {"$ref": "#/$defs/sha256"},
+    "template_pack": {"$ref": "#/$defs/templatePack"},
+    "item_batch": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 40,
+      "items": {"$ref": "#/$defs/taskItem"}
+    },
+    "deterministic_candidates": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/candidate"}
+    },
+    "allowed_actions": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"$ref": "#/$defs/action"}
+    },
+    "allowed_slots": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"type": "string", "minLength": 1}
+    },
+    "evidence_refs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {"$ref": "#/$defs/evidenceRef"}
+    },
+    "output_schema_ref": {"type": "string", "minLength": 1},
+    "output_schema_sha256": {"$ref": "#/$defs/sha256"},
+    "inline_evidence_chars": {"type": "integer", "minimum": 0, "maximum": 16000}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "versionedHash": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["version", "sha256"],
+      "properties": {
+        "version": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "templatePack": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1}
+      }
+    },
+    "action": {
+      "type": "string",
+      "enum": [
+        "preserve_exact",
+        "preserve_image",
+        "preserve_sanitized_image",
+        "redact_identity",
+        "reviewed_text",
+        "remove_identity",
+        "remove_template_background",
+        "exclude_from_output",
+        "human_review"
+      ]
+    },
+    "taskItem": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source_id", "kind", "location", "summary", "evidence_ids", "risk_flags"],
+      "properties": {
+        "source_id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "minLength": 1},
+        "location": {"type": "string"},
+        "summary": {"type": "string", "maxLength": 1000},
+        "inline_text": {"type": "string", "maxLength": 4000},
+        "table_preview": {
+          "type": "array",
+          "maxItems": 20,
+          "items": {
+            "type": "array",
+            "maxItems": 20,
+            "items": {"type": "string", "maxLength": 500}
+          }
+        },
+        "evidence_ids": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "risk_flags": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["candidate_id", "source_id", "resolution_status", "reason_codes", "evidence_ids"],
+      "properties": {
+        "candidate_id": {"type": "string", "minLength": 1},
+        "source_id": {"type": "string", "minLength": 1},
+        "resolution_status": {"enum": ["unresolved", "conflict", "low_confidence"]},
+        "proposed_action": {"$ref": "#/$defs/action"},
+        "proposed_slot": {"type": "string", "minLength": 1},
+        "confidence": {"type": "number", "minimum": 0, "maximum": 1},
+        "reason_codes": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        },
+        "evidence_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": {"type": "string", "minLength": 1}
+        }
+      }
+    },
+    "evidenceRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["evidence_id", "source_id", "kind", "path", "sha256", "page_or_position"],
+      "properties": {
+        "evidence_id": {"type": "string", "minLength": 1},
+        "source_id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "minLength": 1},
+        "path": {"type": "string", "minLength": 1, "pattern": "^(?![A-Za-z]:)(?![/\\\\]).+"},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "page_or_position": {"type": "string"}
+      }
+    }
+  }
+}

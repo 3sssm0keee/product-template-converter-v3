@@ -1,0 +1,172 @@
+{
+  "schema_version": "slot-contract-v3",
+  "artifact_type": "SlotContractV3",
+  "template_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+  "template_ir_sha256": "3ABB5D8A2FC3B3B2FDE498C34F859B97AA31E8F42FFD3C18AA1CDCE268197CCF",
+  "slots": [
+    {
+      "slot_id": "cover.title",
+      "kind": "text",
+      "required": true,
+      "location": "word/document.xml#paragraph:1",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "cover.model",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:2",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "cover.image",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:4",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.overview",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:10",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.overview.images",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:11",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.features",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:14",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.features.images",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:15",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.advantages",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:17",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.advantages.images",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:18",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.scenarios",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:20",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.scenarios.images",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:21",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.qualifications",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:24",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.qualifications.images",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:25",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.supplement",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:27",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "body.supplement.images",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:28",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "parameters.text",
+      "kind": "text",
+      "required": false,
+      "location": "word/document.xml#paragraph:33",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "parameters.images",
+      "kind": "image",
+      "required": false,
+      "location": "word/document.xml#paragraph:34",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    },
+    {
+      "slot_id": "parameters.table",
+      "kind": "table",
+      "required": false,
+      "location": "word/document.xml#paragraph:35",
+      "growth": "按源模板样式自然分页；可选内容缺失时留空",
+      "recognition_source": "human_review",
+      "review_required": true
+    }
+  ],
+  "review_state": "REVIEW_REQUIRED",
+  "slot_contract_sha256": "653DBB50D61366944402B5AE10D5A71D3645BE14CD1C1BB95053D97437750635"
+}

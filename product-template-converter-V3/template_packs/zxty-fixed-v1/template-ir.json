@@ -1,0 +1,228 @@
+{
+  "schema_version": "docx-template-ir-v3",
+  "artifact_type": "DocxTemplateIRV3",
+  "analyzer": {
+    "id": "docx-template-analyzer",
+    "version": "3.0.0"
+  },
+  "source_template": {
+    "path": "../../assets/ZXTY-XX_产品全称-产品介绍-模板.docx",
+    "sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70",
+    "container": "ooxml-docx",
+    "member_count": 35
+  },
+  "fingerprint": {
+    "byte_sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70",
+    "normalized_structure_sha256": "E42E8DDB7F467E2CB0E61C37E2ADC600508172EBD16901AE8F5D3E1F0B2358FE",
+    "visual_proxy_sha256": "CF6DEB30F544AA5A95FF6C807B487DC3A81D4922DE31CE0E716A116BF247AE7D",
+    "visual_method": "page-geometry-media-proxy-v1",
+    "structural_parts": [
+      "[Content_Types].xml",
+      "_rels/.rels",
+      "word/_rels/document.xml.rels",
+      "word/_rels/fontTable.xml.rels",
+      "word/_rels/header1.xml.rels",
+      "word/document.xml",
+      "word/fontTable.xml",
+      "word/footer1.xml",
+      "word/footer2.xml",
+      "word/header1.xml",
+      "word/header2.xml",
+      "word/settings.xml",
+      "word/styles.xml",
+      "word/theme/theme1.xml"
+    ]
+  },
+  "page_contract": {
+    "sections": [
+      {
+        "index": 1,
+        "type": "continuous",
+        "page_size_twips": {
+          "width": 11906,
+          "height": 16838,
+          "orientation": "portrait"
+        },
+        "margins_twips": {
+          "top": 1440,
+          "right": 1800,
+          "bottom": 1440,
+          "left": 1800,
+          "header": 851,
+          "footer": 992,
+          "gutter": 0
+        },
+        "title_page": false,
+        "headers": [
+          {
+            "type": "default",
+            "relationship_id": "rId3"
+          }
+        ],
+        "footers": [
+          {
+            "type": "default",
+            "relationship_id": "rId4"
+          }
+        ]
+      },
+      {
+        "index": 2,
+        "type": "continuous",
+        "page_size_twips": {
+          "width": 11906,
+          "height": 16838,
+          "orientation": "portrait"
+        },
+        "margins_twips": {
+          "top": 1440,
+          "right": 1800,
+          "bottom": 1440,
+          "left": 1800,
+          "header": 851,
+          "footer": 992,
+          "gutter": 0
+        },
+        "title_page": false,
+        "headers": [
+          {
+            "type": "default",
+            "relationship_id": "rId5"
+          }
+        ],
+        "footers": [
+          {
+            "type": "default",
+            "relationship_id": "rId6"
+          }
+        ]
+      }
+    ],
+    "different_even_odd_headers": false,
+    "regions": [
+      {
+        "role": "cover",
+        "section_indexes": [1],
+        "recognition_source": "human_review"
+      },
+      {
+        "role": "body",
+        "section_indexes": [1],
+        "recognition_source": "human_review"
+      },
+      {
+        "role": "closing",
+        "section_indexes": [2],
+        "recognition_source": "human_review"
+      }
+    ]
+  },
+  "styles": [
+    {
+      "style_id": "1",
+      "type": "paragraph",
+      "name": "Normal",
+      "based_on": ""
+    },
+    {
+      "style_id": "2",
+      "type": "paragraph",
+      "name": "footer",
+      "based_on": "1"
+    },
+    {
+      "style_id": "3",
+      "type": "paragraph",
+      "name": "header",
+      "based_on": "1"
+    },
+    {
+      "style_id": "4",
+      "type": "table",
+      "name": "Normal Table",
+      "based_on": ""
+    },
+    {
+      "style_id": "5",
+      "type": "table",
+      "name": "Table Grid",
+      "based_on": "4"
+    },
+    {
+      "style_id": "6",
+      "type": "character",
+      "name": "Default Paragraph Font",
+      "based_on": ""
+    }
+  ],
+  "numbering": {
+    "abstract_num_ids": [],
+    "num_ids": []
+  },
+  "theme": {
+    "part": "word/theme/theme1.xml",
+    "major_fonts": ["Cambria", "Times New Roman", "宋体"],
+    "minor_fonts": ["Arial", "Calibri", "宋体"],
+    "colors": [
+      "000000",
+      "0000FF",
+      "1F497D",
+      "4BACC6",
+      "4F81BD",
+      "800080",
+      "8064A2",
+      "9BBB59",
+      "C0504D",
+      "EEECE1",
+      "F79646",
+      "FFFFFF"
+    ]
+  },
+  "media": [
+    {
+      "part": "word/media/image1.jpeg",
+      "sha256": "BE0D71D33FA9862FD479AF019A687785FEC5C214A0EA0624B8E365059E5F88C5",
+      "visual_sha256": "1675F042E9E97366F8332E6C8F58617178C6FCF42C93BFFA0F1F7DBF44DDCD08",
+      "content_type": "image/jpeg",
+      "semantic_role": "header_brand_asset",
+      "recognition_source": "human_review"
+    },
+    {
+      "part": "word/media/image2.jpeg",
+      "sha256": "4B8C7AC57DC292D2F26886D26F7681E9F490E390FD1E7990C0F7C4813881BF7C",
+      "visual_sha256": "5A7517054765CDE00B321B1B5993E65337A345345EB2FCA052E310A5D5F24D2A",
+      "content_type": "image/jpeg",
+      "semantic_role": "cover_background",
+      "recognition_source": "human_review"
+    },
+    {
+      "part": "word/media/image3.png",
+      "sha256": "5E4D5E54EE9864B18546F776F6BDA37B99EE89C3D529B0002D0E9B6F35AFC476",
+      "visual_sha256": "25B271FCE09721D307DC0A359F4120C18FE60A571FBC55D1EE57C526BB851B14",
+      "content_type": "image/png",
+      "semantic_role": "body_brand_asset",
+      "recognition_source": "human_review"
+    },
+    {
+      "part": "word/media/image4.jpeg",
+      "sha256": "FA496DCF8CCEF8BF5E8F720F9312E4FD7D0B9F149C50633F0EE90BA1478FEABE",
+      "visual_sha256": "FD7A90F453F41928520CE5A57C8C559F80A409E6F876B00FFFA1255CD3969E1B",
+      "content_type": "image/jpeg",
+      "semantic_role": "closing_background",
+      "recognition_source": "human_review"
+    }
+  ],
+  "detected_slots": [],
+  "drawing": {
+    "drawing_count": 3,
+    "floating_anchor_count": 2,
+    "inline_drawing_count": 1
+  },
+  "unsupported_objects": [],
+  "recognition": {
+    "source": "human_review",
+    "review_state": "APPROVED",
+    "approved_scope": "zxty-fixed-v1@1.0.0"
+  },
+  "ir_sha256": "3774EAFB11375A9F1F0A378C160C1F16F31DAC65DDC0E35828719ED295F86903"
+}

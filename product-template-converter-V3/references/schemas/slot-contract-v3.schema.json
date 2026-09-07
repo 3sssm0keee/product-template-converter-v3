@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zxty:slot-contract-v3",
+  "title": "SlotContractV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "template_sha256",
+    "template_ir_sha256",
+    "slots",
+    "review_state",
+    "slot_contract_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "slot-contract-v3"},
+    "artifact_type": {"const": "SlotContractV3"},
+    "template_sha256": {"$ref": "#/$defs/sha256"},
+    "template_ir_sha256": {"$ref": "#/$defs/sha256"},
+    "slots": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/slot"}
+    },
+    "review_state": {"enum": ["REVIEW_REQUIRED", "APPROVED", "REJECTED", "REVISION_REQUIRED"]},
+    "slot_contract_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "slot": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["slot_id", "kind", "required", "location", "growth", "recognition_source", "review_required"],
+      "properties": {
+        "slot_id": {"type": "string", "minLength": 1},
+        "kind": {"enum": ["text", "image", "table", "repeat_block", "fixed_asset"]},
+        "required": {"type": "boolean"},
+        "location": {"type": "string", "minLength": 1},
+        "growth": {"type": "string", "minLength": 1},
+        "recognition_source": {"enum": ["deterministic", "inferred", "human_review"]},
+        "review_required": {"type": "boolean"}
+      }
+    }
+  }
+}

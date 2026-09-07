@@ -1,0 +1,100 @@
+{
+  "schema_version": "slot-contract-v3",
+  "artifact_type": "SlotContractV3",
+  "template_sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70",
+  "template_ir_sha256": "3774EAFB11375A9F1F0A378C160C1F16F31DAC65DDC0E35828719ED295F86903",
+  "slots": [
+    {
+      "slot_id": "product.model",
+      "kind": "text",
+      "required": true,
+      "location": "cover.title",
+      "growth": "single_line_shrink_only",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "product.full_name",
+      "kind": "text",
+      "required": true,
+      "location": "cover.title",
+      "growth": "single_line_shrink_only",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "cover.primary_image",
+      "kind": "image",
+      "required": false,
+      "location": "cover.body",
+      "growth": "contain",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "section.introduction",
+      "kind": "repeat_block",
+      "required": true,
+      "location": "body.chapter.1",
+      "growth": "downward_with_page_break",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "section.functions",
+      "kind": "repeat_block",
+      "required": true,
+      "location": "body.chapter.2",
+      "growth": "downward_with_page_break",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "section.advantages",
+      "kind": "repeat_block",
+      "required": true,
+      "location": "body.chapter.3",
+      "growth": "downward_with_page_break",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "section.scenarios",
+      "kind": "repeat_block",
+      "required": true,
+      "location": "body.chapter.4",
+      "growth": "downward_with_page_break",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "section.parameters",
+      "kind": "repeat_block",
+      "required": true,
+      "location": "body.chapter.5",
+      "growth": "downward_with_page_break",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "section.qualifications",
+      "kind": "repeat_block",
+      "required": false,
+      "location": "body.chapter.6",
+      "growth": "downward_with_page_break",
+      "recognition_source": "human_review",
+      "review_required": false
+    },
+    {
+      "slot_id": "closing.fixed_background",
+      "kind": "fixed_asset",
+      "required": true,
+      "location": "closing.full_page",
+      "growth": "none",
+      "recognition_source": "human_review",
+      "review_required": false
+    }
+  ],
+  "review_state": "APPROVED",
+  "slot_contract_sha256": "80D38419C6DA0286A8BF5CE9F4E127126E7DA78583E416FD72B07AEDDED467FB"
+}

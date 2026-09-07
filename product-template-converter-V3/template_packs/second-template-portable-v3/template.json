@@ -1,0 +1,99 @@
+{
+  "schema_version": "template-pack-v3",
+  "id": "second-template-portable-v3",
+  "version": "1.0.0",
+  "display_name": "second-template-portable-v3",
+  "lifecycle": "RELEASED",
+  "template": "template.docx",
+  "template_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+  "template_ir": "template-ir.json",
+  "template_ir_file_sha256": "D71DFB5F55C307E0DD9313DF1FB9C1CEA7758CBF5CC4424CDD33B5731526D5FE",
+  "slot_contract": "slots.json",
+  "slot_contract_file_sha256": "60FA3E2B7EFAA4F6C35E5E3A548DFEC82B0575D4C7CB521CB676B8A5A01CCED9",
+  "program": "program.json",
+  "program_file_sha256": "A6AEAD6A2170DC90671FB6156D1777D390D1536C459719DB4532402FF378C05F",
+  "validators": "validators.json",
+  "validators_file_sha256": "9C76895A3F674F9771024E00F51739CDEB9BA8083CDCE6C4F6CCDFDA3894A495",
+  "compiler": {
+    "id": "fixed-template-compiler-v3",
+    "version": "3.0.0",
+    "adapter": "declarative-docx-v3"
+  },
+  "delivery_targets": {
+    "desktop": {
+      "delivery_format": "DOCX"
+    },
+    "mobile": {
+      "delivery_format": "PDF"
+    }
+  },
+  "invariants": {
+    "sections": 1
+  },
+  "routing": {
+    "candidate_when_unspecified": false,
+    "rules": []
+  },
+  "approval": {
+    "status": "APPROVED",
+    "queue": "review-queue.json",
+    "queue_sha256": "F516C30DB214CA23D57672019434CF440474AEFE66C3DE31544CD49A229B6B40",
+    "receipt": "review-receipt.json",
+    "receipt_sha256": "C4B3BCECF065942B5137265552B39D1B6419DF6C7F4273D98AC889AFA0C046E5",
+    "reviewer": {
+      "id": "current-user-chat-authorization",
+      "role": "template-owner approval recorded by assistant"
+    },
+    "reviewed_at": "2026-09-07T03:23:45.502601Z",
+    "binding": {
+      "source_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+      "template_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+      "template_ir_sha256": "3ABB5D8A2FC3B3B2FDE498C34F859B97AA31E8F42FFD3C18AA1CDCE268197CCF",
+      "template_dsl_sha256": "A3500E5EDE8083EDC61984A4B97D2353FF996339EDD228154560621F999FFFFF",
+      "compiler_sha256": "58A720FAFBC8E7A08606D1B6C8071812C10A99A1DAF5ABC2EEFA1BE0AFFC06EA",
+      "candidate_output_sha256": "AC8F9113082E5EADAA9F6139EC4CCCB375FD50FF345A221712939A6D2A7F0E0B",
+      "diff_report_sha256": "E937562FBF3EC7D5CD9EFAA6CFA410B69A52883FA6E65B0711AAF5F548917F90"
+    }
+  },
+  "validation": {
+    "status": "PASS",
+    "stage": "template_render_validation_v3",
+    "open_findings": [],
+    "engines": [
+      {
+        "engine": "wps",
+        "original_page_count": 2,
+        "candidate_page_count": 2,
+        "max_mean_absolute_difference": 0.0
+      },
+      {
+        "engine": "word",
+        "original_page_count": 2,
+        "candidate_page_count": 2,
+        "max_mean_absolute_difference": 0.0
+      }
+    ],
+    "evidence": [
+      {
+        "kind": "original_export_report",
+        "path": "original-export.json",
+        "sha256": "230AC694B296A172CAF5B8E5BE5DB89D8D4736D5B9E77B849E48609E7EDB331D"
+      },
+      {
+        "kind": "candidate_export_report",
+        "path": "candidate-export.json",
+        "sha256": "6948787EAD567CE545DCBE7B7EC6B7387BF6E5194C68E8691B70CD44DA5AABDB"
+      },
+      {
+        "kind": "wps_visual_diff",
+        "path": "wps-visual.json",
+        "sha256": "9B2EE99914B02D0A3A25417A82BC6C1688C8D790188A652E3ECF38738D66A8A5"
+      },
+      {
+        "kind": "word_visual_diff",
+        "path": "word-visual.json",
+        "sha256": "3DA7165F1459DA198FA2C458B7C205DD8D74F190A8314FB337E7AF46CCBE1B6B"
+      }
+    ]
+  }
+}

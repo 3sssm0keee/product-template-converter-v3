@@ -1,0 +1,117 @@
+{
+  "schema_version": "template-program-v3",
+  "artifact_type": "TemplateProgramV3",
+  "template_pack": {
+    "id": "zxty-fixed-v1",
+    "version": "1.0.0"
+  },
+  "template_sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70",
+  "template_ir_sha256": "3774EAFB11375A9F1F0A378C160C1F16F31DAC65DDC0E35828719ED295F86903",
+  "compiler": {
+    "id": "fixed-template-compiler-v3",
+    "version": "3.0.0"
+  },
+  "adapter": "zxty-fixed-builder-v2-adapter",
+  "operations": [
+    {
+      "op": "retain_part",
+      "part": "word/styles.xml",
+      "required": true
+    },
+    {
+      "op": "retain_part",
+      "part": "word/theme/theme1.xml",
+      "required": true
+    },
+    {
+      "op": "bind_asset_role",
+      "role": "cover_background",
+      "part": "word/media/image2.jpeg",
+      "required": true
+    },
+    {
+      "op": "bind_asset_role",
+      "role": "closing_background",
+      "part": "word/media/image4.jpeg",
+      "required": true
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "product.model",
+      "source": "content_plan.product.model",
+      "required": true
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "product.full_name",
+      "source": "content_plan.product.full_name",
+      "required": true
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "cover.primary_image",
+      "source": "content_plan.items[decision.use_on_cover=true]",
+      "fit": "contain"
+    },
+    {
+      "op": "page_break"
+    },
+    {
+      "op": "repeat_block",
+      "slot_id": "section.introduction",
+      "source": "content_plan.items[decision.target_section=一、产品简介]",
+      "min_items": 1,
+      "max_items": 1000
+    },
+    {
+      "op": "repeat_block",
+      "slot_id": "section.functions",
+      "source": "content_plan.items[decision.target_section=二、功能介绍]",
+      "min_items": 1,
+      "max_items": 1000
+    },
+    {
+      "op": "repeat_block",
+      "slot_id": "section.advantages",
+      "source": "content_plan.items[decision.target_section=三、产品优势]",
+      "min_items": 1,
+      "max_items": 1000
+    },
+    {
+      "op": "repeat_block",
+      "slot_id": "section.scenarios",
+      "source": "content_plan.items[decision.target_section=四、应用场景]",
+      "min_items": 1,
+      "max_items": 1000
+    },
+    {
+      "op": "repeat_block",
+      "slot_id": "section.parameters",
+      "source": "content_plan.items[decision.target_section=五、技术参数]",
+      "min_items": 1,
+      "max_items": 1000
+    },
+    {
+      "op": "repeat_block",
+      "slot_id": "section.qualifications",
+      "source": "content_plan.items[decision.target_section=六、产品资质]",
+      "min_items": 0,
+      "max_items": 1000
+    },
+    {
+      "op": "section_break",
+      "type": "newPage"
+    },
+    {
+      "op": "validate_invariant",
+      "invariant": "required_chapters",
+      "expected": 6
+    },
+    {
+      "op": "validate_invariant",
+      "invariant": "closing_body_empty",
+      "expected": true
+    }
+  ],
+  "program_sha256": "4EA294C6B1B9A6D0B7383C806DF5F4C70339AF199E4D82C47720941A5512F381"
+}

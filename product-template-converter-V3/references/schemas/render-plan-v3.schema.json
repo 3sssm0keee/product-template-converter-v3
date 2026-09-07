@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-template-converter:render-plan:v3",
+  "title": "RenderPlanV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version", "generator", "upstream", "template_pack", "compiler",
+    "validator_dispatch", "delivery_target", "delivery_format", "renderer_profile",
+    "outputs", "delivery", "canonical_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "render-plan-v3"},
+    "generator": {"$ref": "#/$defs/generator"},
+    "upstream": {"$ref": "#/$defs/upstream"},
+    "template_pack": {"$ref": "#/$defs/templatePack"},
+    "compiler": {"$ref": "#/$defs/versionedId"},
+    "validator_dispatch": {"$ref": "#/$defs/validatorDispatch"},
+    "delivery_target": {"enum": ["desktop", "mobile"]},
+    "delivery_format": {"enum": ["DOCX", "PDF"]},
+    "renderer_profile": {"$ref": "#/$defs/rendererProfile"},
+    "outputs": {"$ref": "#/$defs/outputs"},
+    "delivery": {"$ref": "#/$defs/delivery"},
+    "canonical_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "stringArray": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true},
+    "generator": {
+      "type": "object", "additionalProperties": false, "required": ["id", "version"],
+      "properties": {"id": {"const": "render-plan-builder"}, "version": {"type": "string", "minLength": 1}}
+    },
+    "artifactRef": {
+      "type": "object", "additionalProperties": false, "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"},
+        "schema_version": {"type": "string", "minLength": 1}
+      }
+    },
+    "upstream": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_document", "content_plan", "template_program"],
+      "properties": {
+        "source_document": {"$ref": "#/$defs/artifactRef"},
+        "content_plan": {"$ref": "#/$defs/artifactRef"},
+        "template_program": {"$ref": "#/$defs/artifactRef"}
+      }
+    },
+    "templatePack": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "version", "template_path", "template_sha256"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1}, "version": {"type": "string", "minLength": 1},
+        "template_path": {"type": "string", "minLength": 1}, "template_sha256": {"$ref": "#/$defs/sha256"},
+        "path": {"type": "string", "minLength": 1}, "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "versionedId": {
+      "type": "object", "additionalProperties": false, "required": ["id", "version"],
+      "properties": {"id": {"type": "string", "minLength": 1}, "version": {"type": "string", "minLength": 1}}
+    },
+    "validatorDispatch": {
+      "type": "object", "additionalProperties": false, "required": ["core", "pack"],
+      "properties": {"core": {"$ref": "#/$defs/stringArray"}, "pack": {"$ref": "#/$defs/stringArray"}}
+    },
+    "rendererProfile": {
+      "type": "object", "additionalProperties": false,
+      "required": ["formal_renderer", "required_renderers", "validation_profile"],
+      "properties": {
+        "formal_renderer": {"type": "string", "minLength": 1},
+        "required_renderers": {"$ref": "#/$defs/stringArray"},
+        "validation_profile": {"type": "string", "minLength": 1}
+      }
+    },
+    "outputs": {
+      "type": "object", "additionalProperties": false, "required": ["intermediate_docx", "formal_output"],
+      "properties": {
+        "intermediate_docx": {"type": "string", "minLength": 1},
+        "formal_output": {"type": "string", "minLength": 1}
+      }
+    },
+    "delivery": {
+      "type": "object", "additionalProperties": false,
+      "required": [
+        "target", "delivery_format", "suffix", "intended_use", "validation_profile",
+        "formal_renderer", "required_renderers", "path", "renderer"
+      ],
+      "properties": {
+        "target": {"enum": ["desktop", "mobile"]}, "delivery_format": {"enum": ["DOCX", "PDF"]},
+        "suffix": {"enum": [".docx", ".pdf"]}, "intended_use": {"type": "string", "minLength": 1},
+        "validation_profile": {"type": "string", "minLength": 1},
+        "formal_renderer": {"type": "string", "minLength": 1},
+        "required_renderers": {"$ref": "#/$defs/stringArray"},
+        "path": {"type": "string", "minLength": 1}, "renderer": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

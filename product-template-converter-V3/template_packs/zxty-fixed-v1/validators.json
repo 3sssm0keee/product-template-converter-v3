@@ -1,0 +1,18 @@
+{
+  "schema_version": "template-validator-dispatch-v3",
+  "core": [
+    "document_structure",
+    "tables",
+    "rendered_pages",
+    "identity_scan"
+  ],
+  "pack": [
+    "verify_fixed_template",
+    "verify_template_invariants"
+  ],
+  "dispatch": {
+    "verify_fixed_template": "scripts/verify_fixed_template.py",
+    "verify_template_invariants": "scripts/verify_template_invariants.py"
+  },
+  "review_state": "APPROVED"
+}

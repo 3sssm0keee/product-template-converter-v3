@@ -1,0 +1,83 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-template-converter:image-sanitization-review-queue:v3",
+  "title": "ImageSanitizationReviewQueueV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "review_id", "status", "review_type", "source_id", "request", "binding", "source", "source_asset", "source_preview", "candidate", "diff", "regions", "actions", "instruction"],
+  "properties": {
+    "schema_version": {"const": "image-sanitization-review-queue-v3"},
+    "review_id": {"type": "string", "pattern": "^IMAGE-REVIEW-[A-F0-9]{64}$"},
+    "status": {"const": "REVIEW_REQUIRED"},
+    "review_type": {"const": "image_sanitization"},
+    "source_id": {"type": "string", "minLength": 1},
+    "request": {"$ref": "#/$defs/request"},
+    "binding": {"$ref": "#/$defs/binding"},
+    "source": {"$ref": "#/$defs/imageWithoutPath"},
+    "source_asset": {"$ref": "#/$defs/sourceAsset"},
+    "source_preview": {"$ref": "#/$defs/imageWithPath"},
+    "candidate": {"$ref": "#/$defs/imageWithPath"},
+    "diff": {"$ref": "#/$defs/imageWithPath"},
+    "regions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/region"}},
+    "actions": {"const": ["APPROVE", "REJECT", "REQUEST_REVISION", "FACT_PENDING"]},
+    "instruction": {"type": "string", "minLength": 1},
+    "hidden_reviewer": {"$ref": "#/$defs/hiddenReviewer"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "request": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schema_version", "source_id", "source_sha256", "width", "height", "mode", "method", "regions"],
+      "properties": {
+        "schema_version": {"const": "image-sanitization-v3"}, "source_id": {"type": "string", "minLength": 1},
+        "source_sha256": {"$ref": "#/$defs/sha256"}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1},
+        "mode": {"enum": ["L", "LA", "RGB", "RGBA"]}, "method": {"const": "edge_median_fill"},
+        "regions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/requestRegion"}}
+      }
+    },
+    "requestRegion": {
+      "type": "object", "additionalProperties": false,
+      "required": ["region_id", "x", "y", "width", "height"],
+      "properties": {
+        "region_id": {"type": "string", "minLength": 1}, "x": {"type": "integer", "minimum": 0}, "y": {"type": "integer", "minimum": 0},
+        "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}
+      }
+    },
+    "binding": {
+      "type": "object", "additionalProperties": false,
+      "required": ["script_sha256", "receipt_schema_sha256", "request_sha256", "source_sha256", "source_preview_sha256", "candidate_sha256", "diff_sha256", "review_ui_version"],
+      "properties": {
+        "script_sha256": {"$ref": "#/$defs/sha256"}, "receipt_schema_sha256": {"$ref": "#/$defs/sha256"},
+        "request_sha256": {"$ref": "#/$defs/sha256"}, "source_sha256": {"$ref": "#/$defs/sha256"},
+        "source_preview_sha256": {"$ref": "#/$defs/sha256"}, "candidate_sha256": {"$ref": "#/$defs/sha256"},
+        "diff_sha256": {"$ref": "#/$defs/sha256"}, "review_ui_version": {"const": "image-sanitization-review-1.6.0"},
+        "hidden_reviewer_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "hiddenReviewer": {
+      "type": "object", "additionalProperties": false,
+      "required": ["reviewer_id", "reviewer_role"],
+      "properties": {"reviewer_id": {"type": "string", "minLength": 1, "pattern": "[^\\s]"}, "reviewer_role": {"type": "string", "minLength": 1, "pattern": "[^\\s]"}}
+    },
+    "imageWithoutPath": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sha256", "width", "height", "mode"],
+      "properties": {"sha256": {"$ref": "#/$defs/sha256"}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}, "mode": {"enum": ["L", "LA", "RGB", "RGBA"]}}
+    },
+    "imageWithPath": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sha256", "width", "height", "mode", "path"],
+      "properties": {"sha256": {"$ref": "#/$defs/sha256"}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}, "mode": {"enum": ["L", "LA", "RGB", "RGBA"]}, "path": {"type": "string", "pattern": "^[^/\\\\]+\\.png$"}}
+    },
+    "sourceAsset": {
+      "type": "object", "additionalProperties": false,
+      "required": ["sha256", "width", "height", "mode", "path"],
+      "properties": {"sha256": {"$ref": "#/$defs/sha256"}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}, "mode": {"enum": ["L", "LA", "RGB", "RGBA"]}, "path": {"type": "string", "pattern": "^[^/\\\\]+$"}}
+    },
+    "region": {
+      "type": "object", "additionalProperties": false,
+      "required": ["region_id", "x", "y", "width", "height", "right", "bottom", "ring_pixel_count", "fill_value"],
+      "properties": {"region_id": {"type": "string", "minLength": 1}, "x": {"type": "integer", "minimum": 0}, "y": {"type": "integer", "minimum": 0}, "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}, "right": {"type": "integer", "minimum": 1}, "bottom": {"type": "integer", "minimum": 1}, "ring_pixel_count": {"type": "integer", "minimum": 1}, "fill_value": {}}
+    }
+  }
+}

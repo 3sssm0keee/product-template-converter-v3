@@ -1,0 +1,147 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.zxty.example/schemas/format-probe-result-v3.schema.json",
+  "title": "FormatProbeResultV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "stage",
+    "generated_at",
+    "findings",
+    "schema_version",
+    "artifact_type",
+    "probe_version",
+    "source",
+    "detected_format",
+    "family",
+    "container",
+    "normalized_extension",
+    "requires_normalization",
+    "evidence"
+  ],
+  "properties": {
+    "status": {"enum": ["PASS", "BLOCKED"]},
+    "stage": {"const": "format_probe"},
+    "generated_at": {"type": "string", "minLength": 1},
+    "findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "schema_version": {"const": "3.0.0"},
+    "artifact_type": {"const": "FormatProbeResultV3"},
+    "probe_version": {"const": "format-probe-v3.0.0"},
+    "source": {"$ref": "#/$defs/source"},
+    "detected_format": {
+      "type": ["string", "null"],
+      "enum": ["doc", "docx", "ppt", "pptx", "pdf", null]
+    },
+    "family": {
+      "type": ["string", "null"],
+      "enum": ["word", "presentation", "fixed_layout", null]
+    },
+    "container": {"enum": ["ole", "ooxml", "pdf", "unknown"]},
+    "normalized_extension": {
+      "type": ["string", "null"],
+      "enum": [".doc", ".docx", ".ppt", ".pptx", ".pdf", null]
+    },
+    "requires_normalization": {"type": "boolean"},
+    "evidence": {"type": "object"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"status": {"const": "PASS"}}},
+      "then": {
+        "properties": {
+          "detected_format": {"type": "string"},
+          "family": {"type": "string"},
+          "normalized_extension": {"type": "string"}
+        }
+      }
+    },
+    {
+      "if": {"properties": {"status": {"const": "BLOCKED"}}},
+      "then": {
+        "properties": {
+          "detected_format": {"type": "null"},
+          "family": {"type": "null"},
+          "normalized_extension": {"type": "null"},
+          "requires_normalization": {"const": false}
+        },
+        "minProperties": 13
+      }
+    },
+    {
+      "if": {"properties": {"detected_format": {"const": "doc"}}, "required": ["detected_format"]},
+      "then": {"properties": {
+        "family": {"const": "word"},
+        "container": {"const": "ole"},
+        "normalized_extension": {"const": ".docx"},
+        "requires_normalization": {"const": true}
+      }}
+    },
+    {
+      "if": {"properties": {"detected_format": {"const": "docx"}}, "required": ["detected_format"]},
+      "then": {"properties": {
+        "family": {"const": "word"},
+        "container": {"const": "ooxml"},
+        "normalized_extension": {"const": ".docx"},
+        "requires_normalization": {"const": false}
+      }}
+    },
+    {
+      "if": {"properties": {"detected_format": {"const": "ppt"}}, "required": ["detected_format"]},
+      "then": {"properties": {
+        "family": {"const": "presentation"},
+        "container": {"const": "ole"},
+        "normalized_extension": {"const": ".pptx"},
+        "requires_normalization": {"const": true}
+      }}
+    },
+    {
+      "if": {"properties": {"detected_format": {"const": "pptx"}}, "required": ["detected_format"]},
+      "then": {"properties": {
+        "family": {"const": "presentation"},
+        "container": {"const": "ooxml"},
+        "normalized_extension": {"const": ".pptx"},
+        "requires_normalization": {"const": false}
+      }}
+    },
+    {
+      "if": {"properties": {"detected_format": {"const": "pdf"}}, "required": ["detected_format"]},
+      "then": {"properties": {
+        "family": {"const": "fixed_layout"},
+        "container": {"const": "pdf"},
+        "normalized_extension": {"const": ".pdf"},
+        "requires_normalization": {"const": false}
+      }}
+    }
+  ],
+  "$defs": {
+    "sha256OrEmpty": {
+      "type": "string",
+      "pattern": "^([0-9A-F]{64})?$"
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "size_bytes", "extension"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256OrEmpty"},
+        "size_bytes": {"type": "integer", "minimum": 0},
+        "extension": {"type": "string"}
+      }
+    },
+    "finding": {
+      "type": "object",
+      "required": ["code", "severity", "message"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "severity": {"enum": ["WARNING", "ERROR"]},
+        "message": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": true
+    }
+  }
+}

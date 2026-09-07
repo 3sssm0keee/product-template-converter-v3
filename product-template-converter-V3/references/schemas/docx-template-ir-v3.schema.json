@@ -1,0 +1,162 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:zxty:docx-template-ir-v3",
+  "title": "DocxTemplateIRV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "analyzer",
+    "source_template",
+    "fingerprint",
+    "page_contract",
+    "styles",
+    "numbering",
+    "theme",
+    "media",
+    "detected_slots",
+    "drawing",
+    "unsupported_objects",
+    "recognition",
+    "ir_sha256"
+  ],
+  "properties": {
+    "schema_version": {"const": "docx-template-ir-v3"},
+    "artifact_type": {"const": "DocxTemplateIRV3"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "analyzer": {"$ref": "#/$defs/identity"},
+    "source_template": {"$ref": "#/$defs/source_template"},
+    "fingerprint": {"$ref": "#/$defs/fingerprint"},
+    "page_contract": {"$ref": "#/$defs/page_contract"},
+    "styles": {"type": "array", "items": {"$ref": "#/$defs/style"}},
+    "numbering": {"$ref": "#/$defs/numbering"},
+    "theme": {"$ref": "#/$defs/theme"},
+    "media": {"type": "array", "items": {"$ref": "#/$defs/media"}},
+    "detected_slots": {"type": "array", "items": {"type": "object"}},
+    "drawing": {"$ref": "#/$defs/drawing"},
+    "unsupported_objects": {"type": "array", "items": {"$ref": "#/$defs/unsupported"}},
+    "recognition": {"$ref": "#/$defs/recognition"},
+    "ir_sha256": {"$ref": "#/$defs/sha256"}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "identity": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "version"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "version": {"type": "string", "minLength": 1}
+      }
+    },
+    "source_template": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "container", "member_count"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "container": {"const": "ooxml-docx"},
+        "member_count": {"type": "integer", "minimum": 1}
+      }
+    },
+    "fingerprint": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["byte_sha256", "normalized_structure_sha256", "visual_proxy_sha256", "visual_method", "structural_parts"],
+      "properties": {
+        "byte_sha256": {"$ref": "#/$defs/sha256"},
+        "normalized_structure_sha256": {"$ref": "#/$defs/sha256"},
+        "visual_proxy_sha256": {"$ref": "#/$defs/sha256"},
+        "visual_method": {"type": "string", "minLength": 1},
+        "structural_parts": {"type": "array", "items": {"type": "string", "minLength": 1}, "uniqueItems": true}
+      }
+    },
+    "page_contract": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sections", "different_even_odd_headers", "regions"],
+      "properties": {
+        "sections": {"type": "array", "items": {"type": "object"}},
+        "different_even_odd_headers": {"type": "boolean"},
+        "regions": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "style": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["style_id", "type", "name", "based_on"],
+      "properties": {
+        "style_id": {"type": "string"},
+        "type": {"type": "string"},
+        "name": {"type": "string"},
+        "based_on": {"type": "string"}
+      }
+    },
+    "numbering": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["abstract_num_ids", "num_ids"],
+      "properties": {
+        "abstract_num_ids": {"type": "array", "items": {"type": "string"}},
+        "num_ids": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "theme": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["part", "major_fonts", "minor_fonts", "colors"],
+      "properties": {
+        "part": {"type": ["string", "null"]},
+        "major_fonts": {"type": "array", "items": {"type": "string"}},
+        "minor_fonts": {"type": "array", "items": {"type": "string"}},
+        "colors": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "media": {
+      "type": "object",
+      "required": ["part", "sha256", "visual_sha256", "content_type", "semantic_role", "recognition_source"],
+      "properties": {
+        "part": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "visual_sha256": {"oneOf": [{"$ref": "#/$defs/sha256"}, {"type": "null"}]},
+        "content_type": {"type": "string", "minLength": 1},
+        "relationship_ids": {"type": "array", "items": {"type": "string"}},
+        "semantic_role": {"type": "string", "minLength": 1},
+        "recognition_source": {"enum": ["deterministic", "inferred", "human_review"]}
+      },
+      "additionalProperties": false
+    },
+    "drawing": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["drawing_count", "floating_anchor_count", "inline_drawing_count"],
+      "properties": {
+        "drawing_count": {"type": "integer", "minimum": 0},
+        "floating_anchor_count": {"type": "integer", "minimum": 0},
+        "inline_drawing_count": {"type": "integer", "minimum": 0}
+      }
+    },
+    "unsupported": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["code", "location", "severity"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "location": {"type": "string", "minLength": 1},
+        "severity": {"enum": ["BLOCKED", "HUMAN_REVIEW"]}
+      }
+    },
+    "recognition": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["source", "review_state", "approved_scope"],
+      "properties": {
+        "source": {"enum": ["deterministic", "inferred", "human_review"]},
+        "review_state": {"enum": ["REVIEW_REQUIRED", "APPROVED", "REJECTED", "REVISION_REQUIRED"]},
+        "approved_scope": {"type": ["string", "null"]}
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://local.zxty.example/schemas/dependency-bindings-v3.schema.json",
+  "title": "DependencyBindingsV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "artifact_type",
+    "generated_at",
+    "machine",
+    "dependencies",
+    "findings",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {"const": "3.0.0"},
+    "artifact_type": {"const": "DependencyBindingsV3"},
+    "generated_at": {"type": "string", "format": "date-time"},
+    "machine": {"$ref": "#/$defs/machine"},
+    "dependencies": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "python",
+        "office_powershell",
+        "winrt_ocr_powershell",
+        "pdftoppm",
+        "wps_writer",
+        "microsoft_word",
+        "tesseract"
+      ],
+      "properties": {
+        "python": {"$ref": "#/$defs/dependencyBinding"},
+        "office_powershell": {"$ref": "#/$defs/dependencyBinding"},
+        "winrt_ocr_powershell": {"$ref": "#/$defs/dependencyBinding"},
+        "pdftoppm": {"$ref": "#/$defs/dependencyBinding"},
+        "wps_writer": {"$ref": "#/$defs/dependencyBinding"},
+        "microsoft_word": {"$ref": "#/$defs/dependencyBinding"},
+        "tesseract": {"$ref": "#/$defs/dependencyBinding"}
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/finding"}
+    },
+    "status": {"enum": ["PASS", "BLOCKED"]}
+  },
+  "$defs": {
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9A-F]{64}$"
+    },
+    "nullableString": {
+      "oneOf": [
+        {"type": "string", "minLength": 1},
+        {"type": "null"}
+      ]
+    },
+    "machine": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["hostname", "platform", "python_version"],
+      "properties": {
+        "hostname": {"type": "string", "minLength": 1},
+        "platform": {"type": "string", "minLength": 1},
+        "python_version": {"type": "string", "minLength": 1}
+      }
+    },
+    "dependencyBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "required",
+        "status",
+        "path",
+        "source",
+        "version",
+        "sha256",
+        "checked_locations",
+        "resolution_hint"
+      ],
+      "properties": {
+        "required": {"type": "boolean"},
+        "status": {"enum": ["PASS", "MISSING"]},
+        "path": {"$ref": "#/$defs/nullableString"},
+        "source": {
+          "enum": [
+            "explicit",
+            "config",
+            "environment",
+            "registry_com",
+            "path",
+            "common_location",
+            "unresolved"
+          ]
+        },
+        "version": {"$ref": "#/$defs/nullableString"},
+        "sha256": {
+          "oneOf": [
+            {"$ref": "#/$defs/sha256"},
+            {"type": "null"}
+          ]
+        },
+        "checked_locations": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "resolution_hint": {"type": "string", "minLength": 1}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"status": {"const": "PASS"}},
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "path": {"type": "string", "minLength": 1},
+              "source": {"not": {"const": "unresolved"}},
+              "sha256": {"$ref": "#/$defs/sha256"}
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {"status": {"const": "MISSING"}},
+            "required": ["status"]
+          },
+          "then": {
+            "properties": {
+              "path": {"type": "null"},
+              "source": {"const": "unresolved"},
+              "version": {"type": "null"},
+              "sha256": {"type": "null"}
+            }
+          }
+        }
+      ]
+    },
+    "finding": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "code",
+        "dependency",
+        "checked_locations",
+        "resolution_hint"
+      ],
+      "properties": {
+        "code": {"const": "DEPENDENCY_MISSING"},
+        "dependency": {
+          "enum": [
+            "python",
+            "office_powershell",
+            "winrt_ocr_powershell",
+            "pdftoppm",
+            "wps_writer",
+            "microsoft_word"
+          ]
+        },
+        "checked_locations": {
+          "type": "array",
+          "items": {"type": "string", "minLength": 1}
+        },
+        "resolution_hint": {"type": "string", "minLength": 1}
+      }
+    }
+  }
+}

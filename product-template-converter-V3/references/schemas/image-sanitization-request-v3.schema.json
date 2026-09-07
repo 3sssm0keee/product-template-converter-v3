@@ -1,0 +1,29 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-template-converter:image-sanitization-request:v3",
+  "title": "ImageSanitizationRequestV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "source_id", "source_sha256", "width", "height", "mode", "method", "regions"],
+  "properties": {
+    "schema_version": {"const": "image-sanitization-v3"},
+    "source_id": {"type": "string", "minLength": 1},
+    "source_sha256": {"$ref": "#/$defs/sha256"},
+    "width": {"type": "integer", "minimum": 1},
+    "height": {"type": "integer", "minimum": 1},
+    "mode": {"type": "string", "enum": ["L", "LA", "RGB", "RGBA"]},
+    "method": {"const": "edge_median_fill"},
+    "regions": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/region"}}
+  },
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "region": {
+      "type": "object", "additionalProperties": false,
+      "required": ["region_id", "x", "y", "width", "height"],
+      "properties": {
+        "region_id": {"type": "string", "minLength": 1}, "x": {"type": "integer", "minimum": 0}, "y": {"type": "integer", "minimum": 0},
+        "width": {"type": "integer", "minimum": 1}, "height": {"type": "integer", "minimum": 1}
+      }
+    }
+  }
+}

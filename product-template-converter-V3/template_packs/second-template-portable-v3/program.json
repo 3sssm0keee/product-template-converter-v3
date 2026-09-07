@@ -1,0 +1,146 @@
+{
+  "schema_version": "template-program-v3",
+  "artifact_type": "TemplateProgramV3",
+  "template_pack": {
+    "id": "second-template-portable-v3",
+    "version": "1.0.0"
+  },
+  "template_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+  "template_ir_sha256": "3ABB5D8A2FC3B3B2FDE498C34F859B97AA31E8F42FFD3C18AA1CDCE268197CCF",
+  "compiler": {
+    "id": "fixed-template-compiler-v3",
+    "version": "3.0.0"
+  },
+  "adapter": "declarative-docx-v3",
+  "operations": [
+    {
+      "op": "retain_part",
+      "part": "word/numbering.xml",
+      "required": true
+    },
+    {
+      "op": "retain_part",
+      "part": "word/styles.xml",
+      "required": true
+    },
+    {
+      "op": "retain_part",
+      "part": "word/theme/theme1.xml",
+      "required": true
+    },
+    {
+      "op": "validate_invariant",
+      "invariant": "normalized_structure_sha256",
+      "expected": "B35F1727D89BF76A00D584137C74F938FA43350987E0819050913E7D71AE4EF9"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "cover.title",
+      "source": "content_plan.product.full_name",
+      "required": true
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "cover.model",
+      "source": "content_plan.product.model",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "cover.image",
+      "source": "content_plan.items[decision.target_slot=cover.image]",
+      "fit": "contain"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "body.overview",
+      "source": "content_plan.items[decision.target_slot=body.overview]",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "body.overview.images",
+      "source": "content_plan.items[decision.target_slot=body.overview.images]",
+      "fit": "contain"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "body.features",
+      "source": "content_plan.items[decision.target_slot=body.features]",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "body.features.images",
+      "source": "content_plan.items[decision.target_slot=body.features.images]",
+      "fit": "contain"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "body.advantages",
+      "source": "content_plan.items[decision.target_slot=body.advantages]",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "body.advantages.images",
+      "source": "content_plan.items[decision.target_slot=body.advantages.images]",
+      "fit": "contain"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "body.scenarios",
+      "source": "content_plan.items[decision.target_slot=body.scenarios]",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "body.scenarios.images",
+      "source": "content_plan.items[decision.target_slot=body.scenarios.images]",
+      "fit": "contain"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "body.qualifications",
+      "source": "content_plan.items[decision.target_slot=body.qualifications]",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "body.qualifications.images",
+      "source": "content_plan.items[decision.target_slot=body.qualifications.images]",
+      "fit": "contain"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "body.supplement",
+      "source": "content_plan.items[decision.target_slot=body.supplement]",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "body.supplement.images",
+      "source": "content_plan.items[decision.target_slot=body.supplement.images]",
+      "fit": "contain"
+    },
+    {
+      "op": "bind_slot",
+      "slot_id": "parameters.text",
+      "source": "content_plan.items[decision.target_slot=parameters.text]",
+      "required": false
+    },
+    {
+      "op": "insert_image",
+      "slot_id": "parameters.images",
+      "source": "content_plan.items[decision.target_slot=parameters.images]",
+      "fit": "contain"
+    },
+    {
+      "op": "insert_table",
+      "slot_id": "parameters.table",
+      "source": "content_plan.items[decision.target_slot=parameters.table]",
+      "geometry_id": "auto-fixed-grid"
+    }
+  ],
+  "program_sha256": "39733496C15A95F3B91507F407D04076C2ECE7CD9539A836CF5EF33B25ED286C"
+}

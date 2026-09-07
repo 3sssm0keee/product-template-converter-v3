@@ -1,0 +1,549 @@
+{
+  "schema_version": "3.0",
+  "review_id": "REVIEW-D436BE09952FFB7E8A2A86E53899E0EEF1F35DCD853F3DA5D191E954988B6A2D",
+  "review_type": "template_onboarding",
+  "status": "REVIEW_REQUIRED",
+  "created_at": "2026-09-07T03:20:31.979311Z",
+  "review_contract": {
+    "ui_version": "3.1.3",
+    "receipt_schema_sha256": "C3369C33184C908EE6CC6EC3E2935555A203E90A93328111DAFB60A0A538BF51"
+  },
+  "binding": {
+    "source_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+    "template_sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C",
+    "template_ir_sha256": "3ABB5D8A2FC3B3B2FDE498C34F859B97AA31E8F42FFD3C18AA1CDCE268197CCF",
+    "template_dsl_sha256": "A3500E5EDE8083EDC61984A4B97D2353FF996339EDD228154560621F999FFFFF",
+    "compiler_sha256": "58A720FAFBC8E7A08606D1B6C8071812C10A99A1DAF5ABC2EEFA1BE0AFFC06EA",
+    "candidate_output_sha256": "AC8F9113082E5EADAA9F6139EC4CCCB375FD50FF345A221712939A6D2A7F0E0B",
+    "diff_report_sha256": "E937562FBF3EC7D5CD9EFAA6CFA410B69A52883FA6E65B0711AAF5F548917F90"
+  },
+  "items": [
+    {
+      "review_item_id": "PORTABLE-REVISION",
+      "category": "TEMPLATE",
+      "title": "确认可移植模板版本及原有槽位映射",
+      "conclusion": "仅来源路径及独立模板标识改变；原模板、重建候选字节与基线相同，槽位和编译操作保持一致。",
+      "risk_level": "HIGH",
+      "source_ids": [],
+      "evidence_ids": [
+        "DIFF-REPORT",
+        "DOCUMENT-PREVIEW",
+        "candidate-output.docx",
+        "candidate-template-ir.json",
+        "program.json",
+        "slots.json",
+        "template-ir.json",
+        "template.docx"
+      ],
+      "details": {
+        "recognized_conclusion": "",
+        "template_ir": "",
+        "dsl_diff": "",
+        "preview_paths": [],
+        "diff_overlay_paths": [],
+        "notes": "保留原交付基线；本次批准仅用于新的可移植模板版本，不包括 GitHub 发布。"
+      }
+    },
+    {
+      "review_item_id": "TEMPLATE-COMPILED-PREVIEW",
+      "category": "TEMPLATE",
+      "title": "复核本轮 Word/WPS 原模板与候选页面",
+      "conclusion": "WPS 与 Word 均已真实导出原模板和候选；WPS 2 页；WORD 2 页，逐页机器差异均在阈值内，仍须人眼批准。",
+      "risk_level": "HIGH",
+      "source_ids": [],
+      "evidence_ids": [
+        "CANDIDATE-EXPORT-REPORT",
+        "DIFF-REPORT",
+        "ORIGINAL-EXPORT-REPORT",
+        "WORD-CANDIDATE-PAGE-01",
+        "WORD-CANDIDATE-PAGE-02",
+        "WORD-DIFF-PAGE-01",
+        "WORD-DIFF-PAGE-02",
+        "WORD-ORIGINAL-PAGE-01",
+        "WORD-ORIGINAL-PAGE-02",
+        "WORD-VISUAL-REPORT",
+        "WPS-CANDIDATE-PAGE-01",
+        "WPS-CANDIDATE-PAGE-02",
+        "WPS-DIFF-PAGE-01",
+        "WPS-DIFF-PAGE-02",
+        "WPS-ORIGINAL-PAGE-01",
+        "WPS-ORIGINAL-PAGE-02",
+        "WPS-VISUAL-REPORT"
+      ],
+      "details": {
+        "recognized_conclusion": "双引擎页面集合完整，逐页结构与视觉比较通过。",
+        "template_ir": "",
+        "dsl_diff": "",
+        "preview_paths": [
+          "comparison-wps/original/page-1.png",
+          "comparison-wps/normalized/page-1.png",
+          "comparison-wps/original/page-2.png",
+          "comparison-wps/normalized/page-2.png",
+          "comparison-word/original/page-1.png",
+          "comparison-word/normalized/page-1.png",
+          "comparison-word/original/page-2.png",
+          "comparison-word/normalized/page-2.png"
+        ],
+        "diff_overlay_paths": [
+          "comparison-wps/diff/page-01.png",
+          "comparison-wps/diff/page-02.png",
+          "comparison-word/diff/page-01.png",
+          "comparison-word/diff/page-02.png"
+        ],
+        "notes": "机器差异 PASS 不替代人工确认；任何制品变化都会使本 Queue 与回执失效。"
+      }
+    }
+  ],
+  "evidence_refs": [
+    {
+      "evidence_id": "template.docx",
+      "label": "template.docx",
+      "kind": "artifact",
+      "path": "template.docx",
+      "sha256": "54E3CACE204DD1958A2C62991B13C59FB5B22151CC2911AEC674F1811B89224C"
+    },
+    {
+      "evidence_id": "template-ir.json",
+      "label": "template-ir.json",
+      "kind": "artifact",
+      "path": "template-ir.json",
+      "sha256": "D71DFB5F55C307E0DD9313DF1FB9C1CEA7758CBF5CC4424CDD33B5731526D5FE"
+    },
+    {
+      "evidence_id": "slots.json",
+      "label": "slots.json",
+      "kind": "artifact",
+      "path": "slots.json",
+      "sha256": "60FA3E2B7EFAA4F6C35E5E3A548DFEC82B0575D4C7CB521CB676B8A5A01CCED9"
+    },
+    {
+      "evidence_id": "program.json",
+      "label": "program.json",
+      "kind": "artifact",
+      "path": "program.json",
+      "sha256": "A6AEAD6A2170DC90671FB6156D1777D390D1536C459719DB4532402FF378C05F"
+    },
+    {
+      "evidence_id": "candidate-output.docx",
+      "label": "candidate-output.docx",
+      "kind": "artifact",
+      "path": "candidate-output.docx",
+      "sha256": "AC8F9113082E5EADAA9F6139EC4CCCB375FD50FF345A221712939A6D2A7F0E0B"
+    },
+    {
+      "evidence_id": "candidate-template-ir.json",
+      "label": "candidate-template-ir.json",
+      "kind": "artifact",
+      "path": "candidate-template-ir.json",
+      "sha256": "4D97E21596C95D091DAF32AD4F239A9B6334216003D2A11EC6C1CF2A230700BA"
+    },
+    {
+      "evidence_id": "DIFF-REPORT",
+      "label": "模板结构及渲染差异报告",
+      "kind": "diff_report",
+      "path": "diff-report.json",
+      "sha256": "E937562FBF3EC7D5CD9EFAA6CFA410B69A52883FA6E65B0711AAF5F548917F90"
+    },
+    {
+      "evidence_id": "DOCUMENT-PREVIEW",
+      "label": "面向业务用户的拟生成 DOCX 结构预览",
+      "kind": "document_preview",
+      "path": "document-preview-v3.json",
+      "sha256": "93E9766897542E2E2133617FB0EDDEA4584E363C05794C300FA1CA389E699477"
+    },
+    {
+      "evidence_id": "ORIGINAL-EXPORT-REPORT",
+      "label": "原模板 WPS/Word 导出报告",
+      "kind": "office_export_report",
+      "path": "original-export.json",
+      "sha256": "230AC694B296A172CAF5B8E5BE5DB89D8D4736D5B9E77B849E48609E7EDB331D"
+    },
+    {
+      "evidence_id": "CANDIDATE-EXPORT-REPORT",
+      "label": "候选 WPS/Word 导出报告",
+      "kind": "office_export_report",
+      "path": "candidate-export.json",
+      "sha256": "6948787EAD567CE545DCBE7B7EC6B7387BF6E5194C68E8691B70CD44DA5AABDB"
+    },
+    {
+      "evidence_id": "WPS-VISUAL-REPORT",
+      "label": "WPS 原模板/候选逐页差异报告",
+      "kind": "visual_diff_report",
+      "path": "wps-visual.json",
+      "sha256": "9B2EE99914B02D0A3A25417A82BC6C1688C8D790188A652E3ECF38738D66A8A5"
+    },
+    {
+      "evidence_id": "WORD-VISUAL-REPORT",
+      "label": "Word 原模板/候选逐页差异报告",
+      "kind": "visual_diff_report",
+      "path": "word-visual.json",
+      "sha256": "3DA7165F1459DA198FA2C458B7C205DD8D74F190A8314FB337E7AF46CCBE1B6B"
+    },
+    {
+      "evidence_id": "WPS-ORIGINAL-PAGE-01",
+      "label": "WPS 原模板页 1",
+      "kind": "rendered_page",
+      "path": "comparison-wps/original/page-1.png",
+      "sha256": "14954D1BE09A116E33F69B57508E090EF5506B48BE233FE773CE01A49225938D"
+    },
+    {
+      "evidence_id": "WPS-CANDIDATE-PAGE-01",
+      "label": "WPS 候选页 1",
+      "kind": "rendered_page",
+      "path": "comparison-wps/normalized/page-1.png",
+      "sha256": "14954D1BE09A116E33F69B57508E090EF5506B48BE233FE773CE01A49225938D"
+    },
+    {
+      "evidence_id": "WPS-DIFF-PAGE-01",
+      "label": "WPS 差异叠图 1",
+      "kind": "rendered_page",
+      "path": "comparison-wps/diff/page-01.png",
+      "sha256": "CE10991AB6EC2858F6DCC112062C2809AB3FA499899C96C9A37C6D21A1DA1CD9"
+    },
+    {
+      "evidence_id": "WPS-ORIGINAL-PAGE-02",
+      "label": "WPS 原模板页 2",
+      "kind": "rendered_page",
+      "path": "comparison-wps/original/page-2.png",
+      "sha256": "13DAC5DBCC7B92693C530ABDF79D275EF917166EFCAB8A8A7B2B23C57D2ACB01"
+    },
+    {
+      "evidence_id": "WPS-CANDIDATE-PAGE-02",
+      "label": "WPS 候选页 2",
+      "kind": "rendered_page",
+      "path": "comparison-wps/normalized/page-2.png",
+      "sha256": "13DAC5DBCC7B92693C530ABDF79D275EF917166EFCAB8A8A7B2B23C57D2ACB01"
+    },
+    {
+      "evidence_id": "WPS-DIFF-PAGE-02",
+      "label": "WPS 差异叠图 2",
+      "kind": "rendered_page",
+      "path": "comparison-wps/diff/page-02.png",
+      "sha256": "D53B885F54BEEF2035816F7B496798892989C4F6E68F3EA6949645D898C0DAFD"
+    },
+    {
+      "evidence_id": "WORD-ORIGINAL-PAGE-01",
+      "label": "WORD 原模板页 1",
+      "kind": "rendered_page",
+      "path": "comparison-word/original/page-1.png",
+      "sha256": "4FDF4113D1B2A965A4AF30FA65297EC4A0F486D34A7C8BD4FCAB72710245AE56"
+    },
+    {
+      "evidence_id": "WORD-CANDIDATE-PAGE-01",
+      "label": "WORD 候选页 1",
+      "kind": "rendered_page",
+      "path": "comparison-word/normalized/page-1.png",
+      "sha256": "4FDF4113D1B2A965A4AF30FA65297EC4A0F486D34A7C8BD4FCAB72710245AE56"
+    },
+    {
+      "evidence_id": "WORD-DIFF-PAGE-01",
+      "label": "WORD 差异叠图 1",
+      "kind": "rendered_page",
+      "path": "comparison-word/diff/page-01.png",
+      "sha256": "0D61FBA8A6F327DCE03E6B3749860A2D412045FC29EC88DDB190BB150B6C725F"
+    },
+    {
+      "evidence_id": "WORD-ORIGINAL-PAGE-02",
+      "label": "WORD 原模板页 2",
+      "kind": "rendered_page",
+      "path": "comparison-word/original/page-2.png",
+      "sha256": "38565DFC93D75F0CDD0B05F583DFAF907D52A6C4D662BF5ADD2B8B97F747756C"
+    },
+    {
+      "evidence_id": "WORD-CANDIDATE-PAGE-02",
+      "label": "WORD 候选页 2",
+      "kind": "rendered_page",
+      "path": "comparison-word/normalized/page-2.png",
+      "sha256": "38565DFC93D75F0CDD0B05F583DFAF907D52A6C4D662BF5ADD2B8B97F747756C"
+    },
+    {
+      "evidence_id": "WORD-DIFF-PAGE-02",
+      "label": "WORD 差异叠图 2",
+      "kind": "rendered_page",
+      "path": "comparison-word/diff/page-02.png",
+      "sha256": "2ABCBB30BC51860029659F49B74BE36522C79363B8F963E52C9B2C3C6483F2EC"
+    }
+  ],
+  "document_preview": {
+    "schema_version": "document-preview-v3",
+    "preview_kind": "template_structure",
+    "title": "拟生成的产品介绍 DOCX",
+    "subtitle": "这是给业务审核人员看的内容结构预览；方括号内容表示将由已审核资料填充。",
+    "format": "DOCX",
+    "summary": "预计保留模板视觉资产，形成封面、6 个正文篇章和固定封底。检测到 18 个待确认内容槽位。",
+    "string_rules": [
+      {
+        "label": "技术占位符",
+        "before": "XX / XXX / 内部槽位 ID",
+        "after": "可读的业务占位说明",
+        "reason": "普通用户不需要理解实现代码"
+      },
+      {
+        "label": "样式说明",
+        "before": "微软雅黑字号、颜色代码等模板文字",
+        "after": "由模板样式执行，不进入成品正文",
+        "reason": "避免把排版指令当作文章内容"
+      },
+      {
+        "label": "事实文本",
+        "before": "型号、数字、单位、证书与资质",
+        "after": "仅展示有证据且已人工确认的值",
+        "reason": "保持事实准确性"
+      }
+    ],
+    "pages": [
+      {
+        "page_role": "cover",
+        "title": "封面",
+        "badge": "固定视觉 + 审核内容",
+        "summary": "保留封面背景和品牌化版式，只替换产品型号、名称和主图。",
+        "sections": [
+          {
+            "title": "封面内容",
+            "purpose": "让读者快速识别产品",
+            "layout": "沿用模板封面几何",
+            "blocks": [
+              {
+                "kind": "title",
+                "label": "封面标题",
+                "preview_text": "【产品型号】　【产品名称】",
+                "source_rule": "来自审核后的产品型号和完整名称",
+                "transformation": "替换封面技术占位字符串，不显示内部槽位 ID",
+                "growth": "优先单行；超长时进入版式复核",
+                "slot_ids": [],
+                "table_rows": []
+              },
+              {
+                "kind": "image",
+                "label": "产品主图",
+                "preview_text": "【审核后的产品主图将在此处按比例显示】",
+                "source_rule": "只接受带本地路径和 SHA-256 的已审核图片",
+                "transformation": "示例图片不会进入最终成品",
+                "growth": "保持模板图片区边界；未知裁剪几何时停止",
+                "slot_ids": [],
+                "table_rows": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "page_role": "body",
+        "title": "正文文章结构",
+        "badge": "按内容自然分页",
+        "summary": "以下顺序就是最终 DOCX 的业务文章结构，具体文字来自后续 ContentDecisionV3。",
+        "sections": [
+          {
+            "title": "一、产品简介",
+            "purpose": "承载产品简介相关的已审核内容",
+            "layout": "沿用模板标题样式和页面边距",
+            "blocks": [
+              {
+                "kind": "text",
+                "label": "正文内容",
+                "preview_text": "【产品简介的审核正文】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，填入审核内容",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.overview"
+                ],
+                "table_rows": []
+              },
+              {
+                "kind": "text",
+                "label": "正文内容",
+                "preview_text": "【产品简介的审核正文】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，填入审核内容",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.overview.images"
+                ],
+                "table_rows": []
+              }
+            ]
+          },
+          {
+            "title": "二、功能介绍",
+            "purpose": "承载功能介绍相关的已审核内容",
+            "layout": "沿用模板标题样式和页面边距",
+            "blocks": [
+              {
+                "kind": "text",
+                "label": "正文内容",
+                "preview_text": "【功能介绍的审核正文】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，填入审核内容",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.features"
+                ],
+                "table_rows": []
+              },
+              {
+                "kind": "text",
+                "label": "正文内容",
+                "preview_text": "【功能介绍的审核正文】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，填入审核内容",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.features.images"
+                ],
+                "table_rows": []
+              }
+            ]
+          },
+          {
+            "title": "三、产品优势",
+            "purpose": "承载产品优势相关的已审核内容",
+            "layout": "沿用模板标题样式和页面边距",
+            "blocks": [
+              {
+                "kind": "subtitle",
+                "label": "内容小标题",
+                "preview_text": "【经审核的小标题】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，显示业务含义",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.advantages"
+                ],
+                "table_rows": []
+              },
+              {
+                "kind": "text",
+                "label": "正文内容",
+                "preview_text": "【产品优势的审核正文】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，填入审核内容",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.advantages.images"
+                ],
+                "table_rows": []
+              }
+            ]
+          },
+          {
+            "title": "四、应用场景",
+            "purpose": "承载应用场景相关的已审核内容",
+            "layout": "沿用模板标题样式和页面边距",
+            "blocks": [
+              {
+                "kind": "subtitle",
+                "label": "内容小标题",
+                "preview_text": "【经审核的小标题】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，显示业务含义",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.scenarios"
+                ],
+                "table_rows": []
+              },
+              {
+                "kind": "text",
+                "label": "正文内容",
+                "preview_text": "【应用场景的审核正文】",
+                "source_rule": "按 ContentDecisionV3 的目标章节和顺序填入已审核内容",
+                "transformation": "去除 XX/XXX 技术占位符，填入审核内容",
+                "growth": "正文向下增长；超过页面容量时自然分页",
+                "slot_ids": [
+                  "body.scenarios.images"
+                ],
+                "table_rows": []
+              }
+            ]
+          },
+          {
+            "title": "六、产品资质",
+            "purpose": "承载产品资质相关的已审核内容",
+            "layout": "沿用模板标题样式和页面边距",
+            "blocks": [
+              {
+                "kind": "fact",
+                "label": "资质事实",
+                "preview_text": "产品名称：【审核值】\n产品型号：【审核值】\n证书编号：【有证据时填写】\n检验机构：【有证据时填写】\n报告日期：【有证据时填写】",
+                "source_rule": "来自证书、检测报告或负责人确认的事实证据",
+                "transformation": "厂家名称和无证据事实不会自动带入",
+                "growth": "字段纵向排列；证书图片在下方按比例追加",
+                "slot_ids": [
+                  "body.qualifications",
+                  "body.qualifications.images",
+                  "body.supplement",
+                  "body.supplement.images"
+                ],
+                "table_rows": []
+              },
+              {
+                "kind": "image",
+                "label": "资质图片",
+                "preview_text": "【审核后的证书或检测报告图片】",
+                "source_rule": "使用已通过事实和身份复核的图片",
+                "transformation": "保留可读区域，必要时先脱敏",
+                "growth": "图片纵向追加，禁止覆盖固定页脚",
+                "slot_ids": [],
+                "table_rows": []
+              }
+            ]
+          },
+          {
+            "title": "五、技术参数",
+            "purpose": "承载技术参数相关的已审核内容",
+            "layout": "沿用模板标题样式和页面边距",
+            "blocks": [
+              {
+                "kind": "table",
+                "label": "技术参数表",
+                "preview_text": "参数将按“序号 / 技术项目 / 技术参数”组织",
+                "source_rule": "只使用已审核的参数名称、数值和单位",
+                "transformation": "合并连续参数项并使用固定列宽；不凭空补齐参数",
+                "growth": "表格向下增加行，允许跨页但不得截断",
+                "slot_ids": [],
+                "table_rows": [
+                  [
+                    "序号",
+                    "技术项目",
+                    "技术参数"
+                  ],
+                  [
+                    "1",
+                    "【参数名称】",
+                    "【审核值与单位】"
+                  ]
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "page_role": "back_cover",
+        "title": "封底",
+        "badge": "固定资产",
+        "summary": "封底固定背景、媒体和页脚按模板原样保留，不接受模型自由生成。",
+        "sections": [
+          {
+            "title": "固定封底",
+            "purpose": "保持模板完整性",
+            "layout": "原样保留",
+            "blocks": [
+              {
+                "kind": "fixed",
+                "label": "固定模板资产",
+                "preview_text": "【封底视觉按原模板保留】",
+                "source_rule": "由固定编译器保留 3 个显式声明部件及模板其他安全部件",
+                "transformation": "不生成新的品牌、地址或联系方式",
+                "growth": "不可增长",
+                "slot_ids": [],
+                "table_rows": []
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

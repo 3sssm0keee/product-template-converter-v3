@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-template-converter:template-designation:v3",
+  "title": "TemplateDesignationV3",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "action", "reviewer", "reviewed_at", "inventory", "selected_candidate", "comment"],
+  "properties": {
+    "schema_version": {"const": "template-designation-v3"},
+    "action": {"enum": ["SELECT_CANDIDATE", "PROVIDE_EXTERNAL_TEMPLATE"]},
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "role": {"type": "string", "minLength": 1}
+      }
+    },
+    "reviewed_at": {"type": "string", "minLength": 1},
+    "inventory": {"$ref": "#/$defs/artifactRef"},
+    "selected_candidate": {
+      "oneOf": [
+        {"type": "null"},
+        {"$ref": "#/$defs/candidate"}
+      ]
+    },
+    "comment": {"type": "string"}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"action": {"const": "SELECT_CANDIDATE"}}},
+      "then": {"properties": {"selected_candidate": {"$ref": "#/$defs/candidate"}}}
+    },
+    {
+      "if": {"properties": {"action": {"const": "PROVIDE_EXTERNAL_TEMPLATE"}}},
+      "then": {"properties": {"selected_candidate": {"type": "null"}}}
+    }
+  ],
+  "$defs": {
+    "sha256": {"type": "string", "pattern": "^[A-F0-9]{64}$"},
+    "artifactRef": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"}
+      }
+    },
+    "candidate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["path", "sha256", "normalized_structure_sha256", "visual_proxy_sha256"],
+      "properties": {
+        "path": {"type": "string", "minLength": 1},
+        "sha256": {"$ref": "#/$defs/sha256"},
+        "normalized_structure_sha256": {"$ref": "#/$defs/sha256"},
+        "visual_proxy_sha256": {"$ref": "#/$defs/sha256"}
+      }
+    }
+  }
+}
