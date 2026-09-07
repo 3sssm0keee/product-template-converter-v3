@@ -1,8 +1,8 @@
-# Product Document Template Converter V3
+# Codex / AI Agent Product Document Template Converter V3
 
 [简体中文](README.md) | English
 
-**Turn product materials in different formats into product documents that follow a consistent company template.**
+**A document conversion tool for Codex and other AI agents: turn product materials in different formats into product documents that follow a consistent company template.**
 
 The tool extracts text, images, and specification tables from Word, PowerPoint, or PDF files and maps them to sections in an approved DOCX template. After the necessary content review, it produces an editable DOCX or a PDF for mobile reading and sharing.
 
@@ -11,6 +11,20 @@ It is intended for teams preparing product introductions, sales materials, and t
 Example: supplier PDF manual → content extraction and section mapping → content review → product introduction in the company’s DOCX/PDF format.
 
 This is a **local Python command-line tool for Windows**, not a standalone desktop installer. Content mapping requires a person or an external model; arbitrary documents are not guaranteed to convert automatically without review.
+
+## Working with Codex and other AI agents
+
+This project is designed for agent-assisted document workflows. Codex, or another AI agent with local file access, command execution, and structured JSON capabilities, can invoke the Python scripts, prepare content decisions, and explain validation results. A user reviews business content and template approvals. Experienced users can also run the commands directly.
+
+Typical workflow:
+
+1. Give the agent the source material, target template, and delivery target (DOCX or PDF).
+2. The agent checks the environment using the requirements below, then runs `run_pipeline.py` to extract content and generate task bundles.
+3. The agent prepares `ContentDecisionV3` from the source and task bundles, referring uncertain content to the user.
+4. The user reviews the generated review materials and obtains a valid receipt. The agent resumes the pipeline with the decision file and receipt.
+5. The agent checks the result and delivers files only when `status=PASS` and `deliverable=true`.
+
+The agent provides orchestration and content assistance; the Python scripts perform conversion and validation. The project does not bundle an agent client, model service, or API key, and is not a packaged MCP server. Other agents need their own local file and command execution capabilities.
 
 ## Inputs and outputs
 
@@ -151,3 +165,8 @@ The project does not include a model service, provider SDK, or API key. Content 
 - The original V3 baseline recorded 510 passing tests and 16 passing conversion cases. Distribution changes were checked through dependency analysis, template loading, command-entry checks, and file hashes. The complete conversion matrix and independent blind review were not rerun; historical acceptance is not presented as a fresh acceptance run for this package.
 
 The runtime’s `references/` directory contains content review, template onboarding, and dependency rules. Development tests and release maintenance tools are not included in the runtime package. This English README documents the existing tool; it does not translate its Chinese templates or review interface.
+
+## Contributors
+
+- **3sssm0keee**: Project maintainer responsible for requirements, business review, and release decisions.
+- **Codex (OpenAI AI coding agent)**: AI development collaborator contributing to implementation, troubleshooting, validation assistance, and Chinese and English documentation. Business approvals and release decisions remain with the project maintainer.
