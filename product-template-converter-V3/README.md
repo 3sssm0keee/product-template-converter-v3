@@ -1,4 +1,4 @@
-# 智信天一多模板转换 V3
+# 多模板转换 V3
 
 V3 以冻结的 V2 为兼容基线，把 DOC、DOCX、PPT、PPTX、PDF 作为内容来源，把已批准的 DOCX 作为目标模板。正式结果仍只有两种：`desktop` 交付可编辑 DOCX，`mobile` 交付 WPS 主引擎导出的 PDF。只有 `status=PASS` 且 `deliverable=true` 才能交付。
 
