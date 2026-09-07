@@ -1,7 +1,12 @@
 {
-  "generated_at": "2026-09-07T03:23:46.259195+00:00",
+  "generated_at": "2026-09-07T03:48:25.657777+00:00",
   "template_sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70",
   "files": [
+    {
+      "path": "README.md",
+      "bytes": 7809,
+      "sha256": "0B3CC5F6265F62AD12A1FFF4B1863AA9E4CE577BB7DEE307A3EB8BD2E36E2246"
+    },
     {
       "path": "agents/prompts/content-mapper.system.md",
       "bytes": 1591,
@@ -18,19 +23,9 @@
       "sha256": "90B04F4C802A3821234B7A47789CCB47904C7D8E5C486087EC54953A39D19E70"
     },
     {
-      "path": "README.md",
-      "bytes": 8467,
-      "sha256": "FDBC225F0819149325F4851D55D2997808F5EFF57DA2C01BC221FBDE5C2C3099"
-    },
-    {
       "path": "references/access-policy.md",
       "bytes": 1793,
       "sha256": "8CB5B6BE8CEB28B156BC51E3F16506552D33FD9A4D5F82291650163ADBDCE654"
-    },
-    {
-      "path": "references/blind-validator-prompt.md",
-      "bytes": 1420,
-      "sha256": "3BE9242C3A06E5191784DD887AC8ACA615C139290129C85EBCC32B34C6C3DB2F"
     },
     {
       "path": "references/content-map-schema.md",
@@ -63,39 +58,9 @@
       "sha256": "534078273CC0AA135EB02F014CFF13B6F7875B4EEC2C665C007DD01861FBEC4E"
     },
     {
-      "path": "references/golden-case-index.md",
-      "bytes": 239,
-      "sha256": "CC2E1C5A10917AFA209A0368686B5FB976AC38674A7267B0EA8C7B9E045AC46B"
-    },
-    {
-      "path": "references/golden-case-rules.md",
-      "bytes": 2790,
-      "sha256": "DC52F2226F329339A329891FE6C42AF5335D96F46746AEDDF929C8F471859AC8"
-    },
-    {
-      "path": "references/golden-visual-review-v3.md",
-      "bytes": 2876,
-      "sha256": "F6F751E964EAE2322F9FD8BA129C793E6C3930BE188527DD2EB02462D4E51464"
-    },
-    {
-      "path": "references/performance-contract-v3.md",
-      "bytes": 2506,
-      "sha256": "F79AEB23FB9CC2F588246EA5C4DEE3C233442AD248CC880B7FEB0B61848DD8FF"
-    },
-    {
       "path": "references/prompt-architecture-v3.md",
       "bytes": 2240,
       "sha256": "8076269C02106069E85A3D133F0D4258587280B8149502DACC7FD9C9C286CE8E"
-    },
-    {
-      "path": "references/release-evidence-contract.md",
-      "bytes": 7387,
-      "sha256": "30E185B2286BB4F2E770DF95E400F172B032329B93030612CBEED7B910A72B8A"
-    },
-    {
-      "path": "references/release-matrix-v3.md",
-      "bytes": 4812,
-      "sha256": "30D84430EFE230D3AC25F9A7867D475A6D26183A24F01BD42D98E24A005A8E94"
     },
     {
       "path": "references/repair-policy.md",
@@ -278,19 +243,9 @@
       "sha256": "CE9BD3877CB1166EA29FFDC89CFBD0690E18AB814C782A88390950A4594E74DE"
     },
     {
-      "path": "scripts/assemble_blind_report_v3.py",
-      "bytes": 12936,
-      "sha256": "4605B6D9A6B82CA19AADB99FD85D6D8618FF186DE947345B5FC48ACEE342E4E2"
-    },
-    {
       "path": "scripts/assemble_decision_fragments_v3.py",
       "bytes": 9437,
       "sha256": "3F4DE85F562E6F86860B6E97B3D499EECB08D7D075254AEDCFB98B2BE9F8BB16"
-    },
-    {
-      "path": "scripts/benchmark_v3.py",
-      "bytes": 38494,
-      "sha256": "B4D9D87803BE8ADC84A1D1F7131F82A68B8234B712E5829DACCDBFA5F617A7D9"
     },
     {
       "path": "scripts/build_fixed_docx.py",
@@ -328,11 +283,6 @@
       "sha256": "250299780905C4DE4F8454CD0334C15ED334793DBFD06AF090C7B247DC1BA62A"
     },
     {
-      "path": "scripts/derive_output_name.py",
-      "bytes": 1139,
-      "sha256": "AABA61C6CEDF7567B42E232CD4C8AEECD4E43C0C6DDBA19E2EB4B53DE4A8FE0D"
-    },
-    {
       "path": "scripts/deterministic_candidates_v3.py",
       "bytes": 35707,
       "sha256": "727E893264B5318F06BCDE2D943EEBC450340649E2236F97DA6644713DE3C381"
@@ -358,19 +308,9 @@
       "sha256": "0448BCBEECD15A4A560B429D29D64342F4198AFE89171EF8A183AA044E36012B"
     },
     {
-      "path": "scripts/golden_visual_review_v3.py",
-      "bytes": 22085,
-      "sha256": "8C5B8FDD4F478AD24AD900334FB03F19099853C31879BCBD30A03C040C35020A"
-    },
-    {
       "path": "scripts/image_fingerprint.py",
       "bytes": 2017,
       "sha256": "3B84AA7B56F27DCE952CA8FF823411B28070C116DC62B29D0EB06BFCCDFD0AC6"
-    },
-    {
-      "path": "scripts/image_sanitization_v3.py",
-      "bytes": 48745,
-      "sha256": "43AB129F298A426417436C9CEBF7649A51EAC6B52F906C1B407C9E44B9211B9C"
     },
     {
       "path": "scripts/inventory_source.py",
@@ -378,19 +318,9 @@
       "sha256": "193599181FE02703B0D4FD8CC37F325E2C41D92C17C1766BA293FF4824CE1FC4"
     },
     {
-      "path": "scripts/inventory_template_candidates_v3.py",
-      "bytes": 6979,
-      "sha256": "D12379E14A2C8F858C403DB9F306AEB25F0955F0E5A5436F352A5E98DAAC8673"
-    },
-    {
       "path": "scripts/legacy_visual_compare_v3.py",
       "bytes": 6426,
       "sha256": "6353AF6EE254B4FF4DF9FB135A978C98BAC7F58B1256A563023F2CF5383917F4"
-    },
-    {
-      "path": "scripts/merge_release_matrix_evidence_v3.py",
-      "bytes": 26713,
-      "sha256": "629211A5C1CF1FD3ED1D3E46C4988061BA0293A1E4F9C7476AAF5C11A7A52A5D"
     },
     {
       "path": "scripts/normalize_legacy_office.ps1",
@@ -433,21 +363,6 @@
       "sha256": "507562EB03AA3DEBE6B4CD6AB2800FDC1A746B35717646035BCFF814C7DA51F6"
     },
     {
-      "path": "scripts/publish_v3.py",
-      "bytes": 9746,
-      "sha256": "96F44753D2ADC4FF43F37414564964FB04B7A2926DC952E088E43F8DA02F90FF"
-    },
-    {
-      "path": "scripts/refresh_manifest.py",
-      "bytes": 2788,
-      "sha256": "030C2A68CB1FCA5D3C8DE61499327385ABE32B7B261DF14FCEE6D6AC5673C217"
-    },
-    {
-      "path": "scripts/render_plan.py",
-      "bytes": 2354,
-      "sha256": "B73CFEF80FAD18E8415A8F3E7851D7DF5A6A7F6C2AC90FF17BA8F16BE4CC01B8"
-    },
-    {
       "path": "scripts/render_plan_v3.py",
       "bytes": 5173,
       "sha256": "AD655E85A3A9F923F93C833973E9B8AF3CF00B849A8611EFEDFCB92E2F2E7B3C"
@@ -473,19 +388,9 @@
       "sha256": "31B4994A0B4A838F7B4500B175381E077E3C9608B5790F5D659E1D2499AC84B1"
     },
     {
-      "path": "scripts/run_first_template_matrix_v3.py",
-      "bytes": 25367,
-      "sha256": "B22D7A5C13B7600BA192DA2DC2F6E725F554DDD884F220217C8011BD6DAE9243"
-    },
-    {
       "path": "scripts/run_pipeline.py",
       "bytes": 110462,
       "sha256": "F9C7608C14750DF813CCAD51E4F0841CC23FBB6907A99D1F6CB7B6D5AAEB8B4C"
-    },
-    {
-      "path": "scripts/run_release_matrix_v3.py",
-      "bytes": 15693,
-      "sha256": "09FBD0F4323DC47FF9CAC90ADB40A3961FAF91DF10ACF860DD8E96B2247927EA"
     },
     {
       "path": "scripts/scan_source_identity.py",
@@ -513,11 +418,6 @@
       "sha256": "4FDFA211AD3F5898B8324A9CDCB55F9E366B9A3CA3C8DCDCE9641596DD524A6E"
     },
     {
-      "path": "scripts/template_candidate_selector_v3.py",
-      "bytes": 12030,
-      "sha256": "373A93BB77FAC1746B0A56D86436110920349EB15741645AF859898BCEF94FFB"
-    },
-    {
       "path": "scripts/template_candidate_v3.py",
       "bytes": 9475,
       "sha256": "D982E457C34786B0449EC7EBBF3DA54149EA2A3DB512C80E9B25C7CB62CA22CC"
@@ -536,11 +436,6 @@
       "path": "scripts/template_onboard.py",
       "bytes": 12805,
       "sha256": "CC331B1829BEF3FC446CB0A13402ABEB0285AD4F8DA612D76B13FF0B0F45DC12"
-    },
-    {
-      "path": "scripts/template_packs.py",
-      "bytes": 1500,
-      "sha256": "B2FE3F60F6F11B5C592E362E5534057A8609345958D8AE20AD1845E082C069DD"
     },
     {
       "path": "scripts/template_register.py",
@@ -581,31 +476,6 @@
       "path": "scripts/verify_fixed_template.py",
       "bytes": 2800,
       "sha256": "6038C92291C5FEC349B7018499E6E86FC28393A4A5A59A7C590817913CCB1D94"
-    },
-    {
-      "path": "scripts/verify_legacy_normalization_matrix_v3.py",
-      "bytes": 4976,
-      "sha256": "60C945136EA1A92E4CDAD99A66D82A39D78AD34E5D8D27B206383DE1A83EB767"
-    },
-    {
-      "path": "scripts/verify_prompt_evidence_v3.py",
-      "bytes": 7359,
-      "sha256": "221709B881B523256AC77263B28471B32EE34B376AB83029FCEF168BE7F2C66B"
-    },
-    {
-      "path": "scripts/verify_real_format_matrix_v3.py",
-      "bytes": 3533,
-      "sha256": "17BA7E86EC2913639C49FDF9C79C4435BFC266B70D4FD377329E8DA84AD283A4"
-    },
-    {
-      "path": "scripts/verify_release.py",
-      "bytes": 74966,
-      "sha256": "61AA8C83D09D3D9C9D9014C15C64691F296BC67CAFA0AECA9069EE92B6765E8F"
-    },
-    {
-      "path": "scripts/verify_release_matrix_v3.py",
-      "bytes": 15064,
-      "sha256": "08E2268EF580D9B169E2144CDEE0C566668434E67C98C18A5C3F464AE71D87AF"
     },
     {
       "path": "scripts/verify_tables.py",
